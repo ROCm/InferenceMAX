@@ -15,7 +15,7 @@
 # HF_TOKEN
 # FRAMEWORK
 
-HF_HUB_CACHE_MOUNT="/mnt/hf_hub_cache/"  # Temp solution
+HF_HUB_CACHE_MOUNT="/home/amd/models"  # Temp solution
 PORT=8888
 
 # Determine framework suffix for benchmark script
