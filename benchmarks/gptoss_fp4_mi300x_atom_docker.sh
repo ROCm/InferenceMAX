@@ -26,7 +26,7 @@ else
     CALCULATED_MAX_MODEL_LEN=" --max-model-len 10240 "
 fi
 
-if [[ "$EP_SIZE" -gt 1 ]; then
+if [ "$EP_SIZE" -gt 1 ]; then
   EP=" --enable-expert-parallel"
 else
   EP=" "
