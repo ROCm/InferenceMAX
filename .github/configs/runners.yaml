@@ -43,6 +43,8 @@ mi300x:
 - 'mi300x-amds_1'
 - 'mi300x-amds_2'
 - 'mi300x-amds_3'
+mi300x-tw004:
+- 'mi300x-amdatom_004'
 mi300x-tw022:
 - 'mi300x-amdatom'
 mi325x:
