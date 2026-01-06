@@ -250,7 +250,7 @@ gptoss-fp4-mi300x-atom:
   model-prefix: gptoss
   runner: mi300x-tw004
   precision: fp4
-  framework: atom
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
