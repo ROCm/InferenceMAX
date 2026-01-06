@@ -60,7 +60,7 @@ on:
         type: string
 
 env:
-  HF_TOKEN: ${{ secrets.HF_TOKEN }}
+  HF_TOKEN: ${{ secrets.HF_TKN_SROK }}
   HF_HUB_CACHE: '/mnt/hf_hub_cache/'
   EXP_NAME: ${{ inputs.exp-name }}
   MODEL: ${{ inputs.model }}
