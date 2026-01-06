@@ -47,7 +47,7 @@ docker run --rm -d --ipc=host --shm-size=16g --network=$network_name --name=$ser
 -e ISL -e OSL \
 --entrypoint=/bin/bash \
 $IMAGE \
-benchmarks/"${EXP_NAME%%_*}_${PRECISION}_mi355x${FRAMEWORK_SUFFIX}_docker.sh"
+benchmarks/"${EXP_NAME%%_*}_${PRECISION}_mi300x${FRAMEWORK_SUFFIX}_docker.sh"
 
 set +x
 while IFS= read -r line; do

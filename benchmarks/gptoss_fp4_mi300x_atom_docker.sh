@@ -22,7 +22,6 @@ else
 fi
 
 set -x
-HSA_NO_SCRATCH_RECLAIM=1 \
 python3 -m atom.entrypoints.openai_server \
     --model $MODEL \
     --server-port $PORT \

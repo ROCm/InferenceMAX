@@ -24,7 +24,6 @@ fi
 set -x
 
 BLOCK_SIZE=${BLOCK_SIZE:-16}
-HSA_NO_SCRATCH_RECLAIM=1 \
 python3 -m atom.entrypoints.openai_server \
     --model $MODEL \
     --server-port $PORT \
