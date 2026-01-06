@@ -189,16 +189,16 @@ dsr1-fp4-mi355x-atom:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 4, ep: 4, conc-start: 4, conc-end: 128 }
+    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
   - isl: 1024
     osl: 8192
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
   - isl: 8192
     osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
 
 dsr1-fp8-mi300x-atom:
   image: rocm/pytorch-private:atom-rocm7.1.1-20260105-172b29
@@ -234,15 +234,15 @@ dsr1-fp8-mi355x-atom:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
   - isl: 1024
     osl: 8192
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
   - isl: 8192
     osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
 
 gptoss-fp4-mi300x-atom:
   image: rocm/pytorch-private:atom-rocm7.1.1-20260105-172b29
@@ -282,14 +282,14 @@ gptoss-fp4-mi355x-atom:
     osl: 1024
     search-space:
     - { tp: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
   - isl: 1024
     osl: 8192
     search-space:
     - { tp: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
   - isl: 8192
     osl: 1024
     search-space:
     - { tp: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
