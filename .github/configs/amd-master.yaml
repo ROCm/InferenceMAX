@@ -204,7 +204,7 @@ dsr1-fp8-mi300x-atom:
   image: rocm/pytorch-private:atom-rocm7.1.1-20260105-172b29_tritonfix
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
-  runner: mi300x-tw004
+  runner: mi300x-tw033
   precision: fp8
   framework: atom
   multinode: false
@@ -248,7 +248,7 @@ gptoss-fp4-mi300x-atom:
   image: rocm/pytorch-private:atom-rocm7.1.1-20260105-172b29_tritonfix
   model: openai/gpt-oss-120b
   model-prefix: gptoss
-  runner: mi300x-tw004
+  runner: mi300x-tw033
   precision: fp4
   framework: NA
   multinode: false
