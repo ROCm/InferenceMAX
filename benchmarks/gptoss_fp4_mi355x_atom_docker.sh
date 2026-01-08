@@ -16,6 +16,7 @@ else
     CALCULATED_MAX_MODEL_LEN=" --max-model-len 10240 "
 fi
 
+CALCULATED_MAX_MODEL_LEN=" --max-model-len 131072 "
 set -x
 export HSA_NO_SCRATCH_RECLAIM=1
 python3 -m atom.entrypoints.openai_server \
