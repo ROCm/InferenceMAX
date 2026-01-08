@@ -73,6 +73,9 @@ else
   fi
 fi
 
+#override
+NUM_PROMPTS=$(( CONC * 5 ))
+
 set -x
 echo $GITHUB_WORKSPACE
 git clone https://github.com/kimbochen/bench_serving.git

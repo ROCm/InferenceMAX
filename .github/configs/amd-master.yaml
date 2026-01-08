@@ -183,22 +183,13 @@ dsr1-fp4-mi355x-atom:
   model-prefix: dsr1
   runner: mi355x-m15-17
   precision: fp4
-  framework: NA
+  framework: atom
   multinode: false
   seq-len-configs:
-  - isl: 1024
-    osl: 1024
+  - isl: 128
+    osl: 128
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-  - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-  - isl: 8192
-    osl: 1024
-    search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, conc-start: 1, conc-end: 64 }
 
 dsr1-fp8-mi355x-atom:
   image: rocm/atom:ROCm_7.2_atom_1216
@@ -209,18 +200,10 @@ dsr1-fp8-mi355x-atom:
   framework: NA
   multinode: false
   seq-len-configs:
-  - isl: 1024
-    osl: 1024
+  - isl: 128
+    osl: 128
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-  - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-  - isl: 8192
-    osl: 1024
-    search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, conc-start: 1, conc-end: 64 }
 
 gptoss-fp4-mi355x-atom:
   image: rocm/atom:ROCm_7.2_atom_1216
@@ -231,7 +214,7 @@ gptoss-fp4-mi355x-atom:
   framework: atom
   multinode: false
   seq-len-configs:
-  - isl: 1024
-    osl: 1024
+  - isl: 128
+    osl: 128
     search-space:
-    - { tp: 1, conc-start: 128, conc-end: 128 }
+    - { tp: 8, conc-start: 1, conc-end: 64 }
