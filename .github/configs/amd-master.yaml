@@ -178,12 +178,12 @@ gptoss-fp4-mi355x-vllm:
     - { tp: 8, conc-start: 4, conc-end: 8 }
 
 dsr1-fp4-mi355x-atom:
-  image: rocm/atom:rocm7.1.1-ubuntu24.04-pytorch2.9-atom0.1.1-MI350x
+  image: rocm/atom:ROCm_7.2_atom_1216
   model: amd/DeepSeek-R1-0528-MXFP4-Preview
   model-prefix: dsr1
   runner: mi355x-m15-17
   precision: fp4
-  framework: atom
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -201,12 +201,12 @@ dsr1-fp4-mi355x-atom:
     - { tp: 8, conc-start: 4, conc-end: 128 }
 
 dsr1-fp8-mi355x-atom:
-  image: rocm/atom:rocm7.1.1-ubuntu24.04-pytorch2.9-atom0.1.1-MI350x
+  image: rocm/atom:ROCm_7.2_atom_1216
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
   runner: mi355x-m15-17
   precision: fp8
-  framework: atom
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -223,7 +223,7 @@ dsr1-fp8-mi355x-atom:
     - { tp: 8, conc-start: 4, conc-end: 128 }
 
 gptoss-fp4-mi355x-atom:
-  image: rocm/atom:rocm7.1.1-ubuntu24.04-pytorch2.9-atom0.1.1-MI350x
+  image: rocm/atom:ROCm_7.2_atom_1216
   model: openai/gpt-oss-120b
   model-prefix: gptoss
   runner: mi355x-m15-17
@@ -234,15 +234,4 @@ gptoss-fp4-mi355x-atom:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-  - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-  - isl: 8192
-    osl: 1024
-    search-space:
-    - { tp: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, conc-start: 128, conc-end: 128 }
