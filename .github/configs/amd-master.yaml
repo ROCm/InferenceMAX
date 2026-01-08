@@ -195,9 +195,9 @@ dsr1-fp8-mi355x-atom:
   image: rocm/atom:ROCm_7.2_atom_1216
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
-  runner: mi355x-m15-17
+  runner: mi355x
   precision: fp8
-  framework: NA
+  framework: atom
   multinode: false
   seq-len-configs:
   - isl: 128
