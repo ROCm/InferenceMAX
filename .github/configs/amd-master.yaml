@@ -183,7 +183,7 @@ dsr1-fp4-mi355x-atom:
   model-prefix: dsr1
   runner: mi355x-m15-17
   precision: fp4
-  framework: NA
+  framework: atom
   multinode: false
   seq-len-configs:
   - isl: 128
@@ -211,7 +211,7 @@ gptoss-fp4-mi355x-atom:
   model-prefix: gptoss
   runner: mi355x-m15-17
   precision: fp4
-  framework: atom
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 128
