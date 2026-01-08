@@ -215,7 +215,7 @@ gptoss-fp4-mi355x-atom:
   multinode: false
   seq-len-configs:
   - isl: 128
-    osl: 130944
+    osl: 130943
     search-space:
     - { tp: 1, conc-start: 1, conc-end: 64 }
     - { tp: 8, conc-start: 1, conc-end: 64 }
