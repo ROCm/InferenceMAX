@@ -74,7 +74,7 @@ else
 fi
 
 #override
-NUM_PROMPTS=$(( CONC * 5 ))
+NUM_PROMPTS=$(( CONC * 3 ))
 
 set -x
 echo $GITHUB_WORKSPACE
