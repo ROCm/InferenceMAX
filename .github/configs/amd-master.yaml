@@ -187,7 +187,7 @@ dsr1-fp4-mi355x-atom:
   multinode: false
   seq-len-configs:
   - isl: 128
-    osl: 65536
+    osl: 8192
     search-space:
     - { tp: 8, conc-start: 1, conc-end: 64 }
 
@@ -215,7 +215,7 @@ gptoss-fp4-mi355x-atom:
   multinode: false
   seq-len-configs:
   - isl: 128
-    osl: 65536
+    osl: 8192
     search-space:
     - { tp: 1, conc-start: 1, conc-end: 64 }
     - { tp: 8, conc-start: 1, conc-end: 64 }
