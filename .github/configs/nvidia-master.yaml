@@ -1047,3 +1047,17 @@ dsr1-fp4-gb200-dynamo-sglang:
         dp-attn: true
         additional-settings:
         - "DECODE_NODES=8"
+
+qwen3.235b-fp8-b200-vllm:
+  image: vllm/vllm-openai:nightly
+  model: Qwen/Qwen3-235B-A22B-Instruct-2507-FP8
+  model-prefix: qwen3.235b
+  runner: b200-shaderform10
+  precision: fp8
+  framework: vllm
+  multinode: false
+  seq-len-configs:
+  - isl: 128
+    osl: 128
+    search-space:
+    - { tp: 8, conc-start: 4, conc-end: 4 }
