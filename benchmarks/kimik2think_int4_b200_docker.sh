@@ -29,13 +29,18 @@ else
     CALCULATED_MAX_MODEL_LEN=${MAX_MODEL_LEN:-10240}  
 fi
 
+#cat > config.yaml << EOF
+#kv-cache-dtype: fp8
+#compilation-config: '{"pass_config":{"fuse_allreduce_rms":true,"eliminate_noops":true}}'
+#async-scheduling: true
+#no-enable-prefix-caching: true
+#max-cudagraph-capture-size: 2048
+#max-num-batched-tokens: 8192
+#max-model-len: $CALCULATED_MAX_MODEL_LEN
+#EOF
+
 cat > config.yaml << EOF
-kv-cache-dtype: fp8
-compilation-config: '{"pass_config":{"fuse_allreduce_rms":true,"eliminate_noops":true}}'
-async-scheduling: true
 no-enable-prefix-caching: true
-max-cudagraph-capture-size: 2048
-max-num-batched-tokens: 8192
 max-model-len: $CALCULATED_MAX_MODEL_LEN
 EOF
 
