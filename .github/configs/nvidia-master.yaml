@@ -1082,7 +1082,7 @@ kimik2.inst0905-fp8-b200-vllm:
   model-prefix: kimik2.inst0905
   runner: b200-shaderform10
   precision: fp8
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 128
