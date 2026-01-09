@@ -1060,4 +1060,4 @@ qwen3.235b-fp8-b200-vllm:
   - isl: 128
     osl: 128
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 4 }
+    - { tp: 4, conc-start: 4, conc-end: 4 }
