@@ -241,6 +241,7 @@ run_benchmark_serving() {
         --save-result \
         --percentile-metrics 'ttft,tpot,itl,e2el' \
         --result-dir "$result_dir" \
-        --result-filename "$result_filename.json"
+        --result-filename "$result_filename.json" \
+        --trust-remote-code
     set +x
 }
