@@ -1152,7 +1152,7 @@ minimaxm2p1-fp8-b200-vllm:
   model-prefix: minimaxm2p1
   runner: b200-shaderform10
   precision: fp8
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 128
