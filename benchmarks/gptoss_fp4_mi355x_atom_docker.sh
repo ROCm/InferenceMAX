@@ -32,7 +32,7 @@ export HIP_FORCE_DEV_KERNARG=1
 # Prevents Ray from overriding device visibility logic
 export RAY_EXPERIMENTAL_NOSET_ROCR_VISIBLE_DEVICES=1
 export RAY_EXPERIMENTAL_NOSET_HIP_VISIBLE_DEVICES=1
-
+export ATOM_GPT_OSS_MODEL=1
 python3 -m atom.entrypoints.openai_server \
     --model $MODEL \
     --server-port $PORT \
