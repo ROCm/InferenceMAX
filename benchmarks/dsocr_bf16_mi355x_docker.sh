@@ -34,8 +34,8 @@ fi
 cat > config.yaml << EOF
 no-enable-prefix-caching: true
 max-model-len: $CALCULATED_MAX_MODEL_LEN
+block-size: 1
 EOF
-#block-size: 1
 
 # Turn off docker specific optimizations 
 #export VLLM_USE_AITER_UNIFIED_ATTENTION=1
