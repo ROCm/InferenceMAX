@@ -21,30 +21,26 @@ PORT=8888
 # Determine framework suffix for benchmark script
 FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "atom" ]] && printf '_atom' || printf '')
 
-network_name="bmk-net"
 server_name="bmk-server"
 client_name="bmk-client"
 
-# Cleanup: stop server container and remove network
+# Cleanup: stop server container 
 docker stop $server_name 2>/dev/null || true
 docker rm $server_name 2>/dev/null || true
-docker network rm $network_name 2>/dev/null || true
-
-docker network create $network_name
 
 if [[ "$MODEL" == "amd/DeepSeek-R1-0528-MXFP4-Preview" || "$MODEL" == "deepseek-ai/DeepSeek-R1-0528" ]]; then
   if [[ "$OSL" == "8192" ]]; then
     #NUM_PROMPTS=$(( CONC * 20 ))
-    NUM_PROMPTS=$(( CONC * 2 )) # atom has no much compilation overhead for dsr1
+    export NUM_PROMPTS=$(( CONC * 2 )) # atom has no much compilation overhead for dsr1
   else
     #NUM_PROMPTS=$(( CONC * 50 ))
-    NUM_PROMPTS=$(( CONC * 10 )) # atom has no much compilation overhead for dsr1
+    export NUM_PROMPTS=$(( CONC * 10 )) # atom has no much compilation overhead for dsr1
   fi
 else
   if [[ "$OSL" == "8192" ]]; then
-    NUM_PROMPTS=$(( CONC * 2 ))
+    export NUM_PROMPTS=$(( CONC * 2 ))
   else
-    NUM_PROMPTS=$(( CONC * 10 ))
+    export NUM_PROMPTS=$(( CONC * 10 ))
   fi
 fi
 
@@ -70,7 +66,6 @@ if ls gpucore.* 1> /dev/null 2>&1; then
   rm -f gpucore.*
 fi
 
-# Cleanup: stop server container and remove network
+# Cleanup: stop server container 
 docker stop $server_name 2>/dev/null || true
 docker rm $server_name 2>/dev/null || true
-docker network rm $network_name 2>/dev/null || true
