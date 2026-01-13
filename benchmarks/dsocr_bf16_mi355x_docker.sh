@@ -48,6 +48,7 @@ set -x
 vllm serve $MODEL --host 0.0.0.0 --port $PORT --config config.yaml \
 --gpu-memory-utilization 0.9 --tensor-parallel-size $TP --max-num-seqs 512 \
 --trust-remote-code \
+--logits_processors vllm.model_executor.models.deepseek_ocr:NGramPerReqLogitsProcessor --mm-processor-cache-gb 0 \
 > $SERVER_LOG 2>&1 &
 
 SERVER_PID=$!
