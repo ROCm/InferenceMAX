@@ -384,7 +384,7 @@ dsocr-bf16-mi355x-vllm:
   model-prefix: dsocr
   runner: mi355x-m15-17
   precision: bf16
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
