@@ -59,8 +59,8 @@ docker run --rm --init --network host --shm-size=16g --name=$server_name \
 --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
 -v $HF_HUB_CACHE_MOUNT:$HF_HUB_CACHE \
 -v $GITHUB_WORKSPACE:/workspace/ -w /workspace/ \
--e HF_TOKEN -e HF_HUB_CACHE -e MODEL -e TP -e CONC -e MAX_MODEL_LEN -e PORT=$PORT -e EP_SIZE -e DP_ATTENTION \
--e ISL -e OSL \
+-e HF_TOKEN -e HF_HUB_CACHE -e MODEL -e TP -e CONC -e MAX_MODEL_LEN -e ISL -e OSL -e PORT=$PORT -e EP_SIZE -e DP_ATTENTION \
+-e RESULT_FILENAME -e RANDOM_RANGE_RATIO -e NUM_PROMPTS \
 --entrypoint=/bin/bash \
 $IMAGE \
 benchmarks/"${EXP_NAME%%_*}_${PRECISION}_mi355x${FRAMEWORK_SUFFIX}_docker.sh"
