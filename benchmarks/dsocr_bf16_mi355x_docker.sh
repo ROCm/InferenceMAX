@@ -34,7 +34,7 @@ fi
 cat > config.yaml << EOF
 no-enable-prefix-caching: true
 max-model-len: $CALCULATED_MAX_MODEL_LEN
-block-size: 1
+block-size: 16
 EOF
 
 # Turn off docker specific optimizations 
