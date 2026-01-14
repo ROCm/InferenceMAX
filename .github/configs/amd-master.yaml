@@ -300,7 +300,7 @@ qwen3.235b-fp8-mi355x-vllm:
   model-prefix: qwen3.235b
   runner: mi355x-m15-17
   precision: fp8
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -314,7 +314,7 @@ qwencoder3.480b-fp8-mi355x-vllm:
   model-prefix: qwencoder3.480b
   runner: mi355x-m15-17
   precision: fp8
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -328,7 +328,7 @@ kimik2.inst0905-fp8-mi355x-vllm:
   model-prefix: kimik2.inst0905
   runner: mi355x-m15-17
   precision: fp8
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -342,7 +342,7 @@ kimik2think-int4-mi355x-vllm:
   model-prefix: kimik2think
   runner: mi355x-m15-17
   precision: int4
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -356,7 +356,7 @@ glm4p7-fp4-mi355x-vllm:
   model-prefix: glm4p7
   runner: mi355x-m15-17
   precision: fp4
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -370,7 +370,7 @@ dsv32-fp8-mi355x-vllm:
   model-prefix: dsv32
   runner: mi355x-m15-17
   precision: fp8
-  framework: NA
+  framework: vllm
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -398,7 +398,7 @@ minimaxm2p1-fp8-mi355x-vllm:
   model-prefix: minimaxm2p1
   runner: mi355x-m15-17
   precision: fp8
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
