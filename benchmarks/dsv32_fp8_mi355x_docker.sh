@@ -34,8 +34,6 @@ fi
 cat > config.yaml << EOF
 no-enable-prefix-caching: true
 max-model-len: $CALCULATED_MAX_MODEL_LEN
-block-size: 1
-tokenizer-mode: deepseek_v32 
 EOF
 
 # Turn off docker specific optimizations 
@@ -49,6 +47,7 @@ set -x
 vllm serve $MODEL --host 0.0.0.0 --port $PORT --config config.yaml \
 --gpu-memory-utilization 0.9 --tensor-parallel-size $TP --max-num-seqs 512 \
 --trust-remote-code \
+--tokenizer-mode deepseek_v32 \
 > $SERVER_LOG 2>&1 &
 
 SERVER_PID=$!
