@@ -35,6 +35,7 @@ cat > config.yaml << EOF
 no-enable-prefix-caching: true
 max-model-len: $CALCULATED_MAX_MODEL_LEN
 block-size: 1
+tokenizer-mode: deepseek_v32 
 EOF
 
 # Turn off docker specific optimizations 
