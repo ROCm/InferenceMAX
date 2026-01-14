@@ -373,8 +373,8 @@ dsv32-fp8-mi355x-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 1024
-    osl: 1024
+  - isl: 128
+    osl: 128
     search-space:
     - { tp: 8, conc-start: 4, conc-end: 128 }
 
