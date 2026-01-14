@@ -21,6 +21,9 @@ nvidia-smi
 
 SERVER_LOG=$(mktemp /tmp/server-XXXXXX.log)
 
+#dsocr requires addict
+pip install addict
+
 set -x
 python3 -m sglang.launch_server --model-path $MODEL --host 0.0.0.0 --port $PORT --trust-remote-code \
 --tensor-parallel-size=$TP --data-parallel-size=1 \

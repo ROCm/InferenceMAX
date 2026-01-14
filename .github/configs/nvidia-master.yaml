@@ -1169,7 +1169,7 @@ qwen3.235b-fp8-b200-sglang:
   model-prefix: qwen3.235b
   runner: b200-shaderform10
   precision: fp8
-  framework: sglang
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 128
@@ -1183,7 +1183,7 @@ qwencoder3.480b-fp8-b200-sglang:
   model-prefix: qwencoder3.480b
   runner: b200-shaderform10
   precision: fp8
-  framework: sglang
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 128
@@ -1197,7 +1197,7 @@ kimik2.inst0905-fp8-b200-sglang:
   model-prefix: kimik2.inst0905
   runner: b200-shaderform10
   precision: fp8
-  framework: sglang
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 128
@@ -1211,7 +1211,7 @@ kimik2think-int4-b200-sglang:
   model-prefix: kimik2think
   runner: b200-shaderform10
   precision: int4
-  framework: sglang
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 128
@@ -1239,7 +1239,7 @@ dsv32-fp8-b200-sglang:
   model-prefix: dsv32
   runner: b200-shaderform10
   precision: fp8
-  framework: sglang
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 128
@@ -1267,7 +1267,7 @@ minimaxm2p1-fp8-b200-sglang:
   model-prefix: minimaxm2p1
   runner: b200-shaderform10
   precision: fp8
-  framework: sglang
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 128
