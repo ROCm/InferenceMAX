@@ -2,6 +2,7 @@
 
 HF_HUB_CACHE_MOUNT="/mnt/nvme2n1"
 FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "trt" ]] && printf '_trt' || printf '')
+FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "sglang" ]] && printf '_sglang' || printf '')
 PORT=8888
 
 # Create unique cache directory based on model parameters
