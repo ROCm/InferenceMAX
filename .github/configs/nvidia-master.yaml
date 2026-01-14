@@ -1054,7 +1054,7 @@ qwen3.235b-fp8-b200-vllm:
   model-prefix: qwen3.235b
   runner: b200-shaderform10
   precision: fp8
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -1068,7 +1068,7 @@ qwencoder3.480b-fp8-b200-vllm:
   model-prefix: qwencoder3.480b
   runner: b200-shaderform10
   precision: fp8
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -1082,7 +1082,7 @@ kimik2.inst0905-fp8-b200-vllm:
   model-prefix: kimik2.inst0905
   runner: b200-shaderform10
   precision: fp8
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -1096,7 +1096,7 @@ kimik2think-int4-b200-vllm:
   model-prefix: kimik2think
   runner: b200-shaderform10
   precision: int4
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -1110,7 +1110,7 @@ glm4p7-fp4-b200-vllm:
   model-prefix: glm4p7
   runner: b200-shaderform10
   precision: fp4
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -1127,8 +1127,8 @@ dsv32-fp8-b200-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 1024
-    osl: 1024
+  - isl: 128
+    osl: 128
     search-space:
     - { tp: 8, conc-start: 4, conc-end: 128 }
 
@@ -1138,7 +1138,7 @@ dsocr-bf16-b200-vllm:
   model-prefix: dsocr
   runner: b200-shaderform10
   precision: bf16
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
@@ -1152,7 +1152,7 @@ minimaxm2p1-fp8-b200-vllm:
   model-prefix: minimaxm2p1
   runner: b200-shaderform10
   precision: fp8
-  framework: vllm
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 1024
