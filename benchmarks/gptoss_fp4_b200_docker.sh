@@ -14,7 +14,6 @@ check_env_vars \
     RANDOM_RANGE_RATIO \
     RESULT_FILENAME \
     NUM_PROMPTS \
-    NUM_WARMUPS 
 
 nvidia-smi
 
@@ -68,7 +67,6 @@ run_benchmark_serving \
     --output-len "$OSL" \
     --random-range-ratio "$RANDOM_RANGE_RATIO" \
     --num-prompts "$NUM_PROMPTS" \
-    --num-warmups "$NUM_WARMUPS" \
     --max-concurrency "$CONC" \
     --result-filename "$RESULT_FILENAME" \
     --result-dir /workspace/
