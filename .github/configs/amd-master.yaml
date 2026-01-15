@@ -428,7 +428,7 @@ qwencoder3.480b-fp8-mi355x-sglang:
   model-prefix: qwencoder3.480b
   runner: mi355x-m15-17
   precision: fp8
-  framework: sglang
+  framework: NA
   multinode: false
   seq-len-configs:
   - isl: 128
