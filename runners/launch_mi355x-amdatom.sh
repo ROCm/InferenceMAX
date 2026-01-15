@@ -16,10 +16,9 @@
 # FRAMEWORK
 
 HF_HUB_CACHE_MOUNT="/mnt/hf_hub_cache/"  # Temp solution
-PORT=8888
-
-# Determine framework suffix for benchmark script
 FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "atom" ]] && printf '_atom' || printf '')
+FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "sglang" ]] && printf '_sglang' || printf '')
+PORT=8888
 
 server_name="bmk-server"
 client_name="bmk-client"
@@ -43,6 +42,9 @@ else
     export NUM_PROMPTS=$(( CONC * 10 ))
   fi
 fi
+
+# TODO: override
+export NUM_PROMPTS=$(( CONC * 10 ))
 
 set -x
 docker pull $IMAGE
