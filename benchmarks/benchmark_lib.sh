@@ -101,6 +101,7 @@ wait_for_server_ready() {
 #   --output-len: Random output sequence length
 #   --random-range-ratio: Random range ratio
 #   --num-prompts: Number of prompts
+#   --num-warmups: Number of warmups
 #   --max-concurrency: Max concurrency
 #   --result-filename: Result filename without extension
 #   --result-dir: Result directory
@@ -114,6 +115,7 @@ run_benchmark_serving() {
     local output_len=""
     local random_range_ratio=""
     local num_prompts=""
+    local num_warmups=""
     local max_concurrency=""
     local result_filename=""
     local result_dir=""
@@ -148,6 +150,10 @@ run_benchmark_serving() {
                 ;;
             --num-prompts)
                 num_prompts="$2"
+                shift 2
+                ;;
+            --num-warmups)
+                num_warmups="$2"
                 shift 2
                 ;;
             --max-concurrency)
@@ -202,6 +208,10 @@ run_benchmark_serving() {
         echo "Error: --num-prompts is required"
         return 1
     fi
+    if [[ -z "$num_warmups" ]]; then
+        echo "Error: --num-warmups is required"
+        return 1
+    fi
     if [[ -z "$max_concurrency" ]]; then
         echo "Error: --max-concurrency is required"
         return 1
@@ -228,7 +238,7 @@ run_benchmark_serving() {
 
     # Clone benchmark serving repo
     local BENCH_SERVING_DIR=$(mktemp -d /tmp/bmk-XXXXXX)
-    git clone https://github.com/kimbochen/bench_serving.git "$BENCH_SERVING_DIR"
+    git clone -b warmup https://github.com/kimbochen/bench_serving.git "$BENCH_SERVING_DIR"
 
     # Build benchmark command
     local benchmark_cmd=(
@@ -241,6 +251,7 @@ run_benchmark_serving() {
         --random-output-len "$output_len"
         --random-range-ratio "$random_range_ratio"
         --num-prompts "$num_prompts"
+        --num-warmups "$num_warmups"
         --max-concurrency "$max_concurrency"
         --request-rate inf
         --ignore-eos

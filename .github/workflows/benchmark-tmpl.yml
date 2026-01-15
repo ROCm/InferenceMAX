@@ -60,7 +60,7 @@ on:
         type: string
 
 env:
-  HF_TOKEN: ${{ secrets.HF_TOKEN }}
+  HF_TOKEN: ${{ secrets.HF_TKN_SROK }}
   HF_HUB_CACHE: '/mnt/hf_hub_cache/'
   EXP_NAME: ${{ inputs.exp-name }}
   MODEL: ${{ inputs.model }}
@@ -120,22 +120,11 @@ jobs:
                 # nvidia-smi --gpu-reset -i 0,1,2,3,4,5,6,7 2>/dev/null || true
               fi
             else
-              echo "[Docker] Cleaning up resources ..."
-              docker ps -aq | xargs -r docker rm -f
-              docker network prune -f
-              while [ -n "$(docker ps -aq)" ]; do
-                docker ps -a
-                sleep 5
-              done
+              echo "[Docker] Cleaning up bmk-server container ..."
+              docker stop bmk-server 2>/dev/null || true
+              docker rm -f bmk-server 2>/dev/null || true
+              docker network rm bmk-net 2>/dev/null || true
             fi
-          fi
-          if command -v squeue >/dev/null 2>&1; then
-            echo "[Slurm] Cleaning up resources ..."
-            scancel -u $USER
-            while [ -n "$(squeue -u $USER --noheader --format='%i')" ]; do
-              squeue -u $USER
-              sleep 5
-            done
           fi
 
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
@@ -149,6 +138,7 @@ jobs:
           RUNNER_NAME: ${{ runner.name }}
           RESULT_FILENAME: ${{ env.EXP_NAME }}_${{ env.PRECISION }}_${{ env.FRAMEWORK }}_tp${{ env.TP }}_ep${{ env.EP_SIZE }}_dpa_${{ env.DP_ATTENTION }}_conc${{ env.CONC }}_${{ runner.name }}
         run: |
+          echo "Running benchmark on runner: $RUNNER_NAME"
           bash ./runners/launch_${RUNNER_NAME%%_*}.sh
           FOUND_RESULT_FILE=
           for i in {1..10}; do

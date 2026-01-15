@@ -15,6 +15,7 @@ check_env_vars \
     MAX_MODEL_LEN \
     RANDOM_RANGE_RATIO \
     NUM_PROMPTS \
+    NUM_WARMUPS \
     RESULT_FILENAME
 
 SERVER_LOG=$(mktemp /tmp/server-XXXXXX.log)
@@ -85,6 +86,7 @@ run_benchmark_serving \
     --output-len "$OSL" \
     --random-range-ratio "$RANDOM_RANGE_RATIO" \
     --num-prompts "$NUM_PROMPTS" \
+    --num-warmups "$NUM_WARMUPS" \
     --max-concurrency "$CONC" \
     --result-filename "$RESULT_FILENAME" \
     --result-dir /workspace/
