@@ -15,9 +15,10 @@
 SERVER_LOG=$(mktemp /tmp/server-XXXXXX.log)
 
 set -x
+export SGLANG_USE_AITER=0
 python3 -m sglang.launch_server --model-path $MODEL --host 0.0.0.0 --port $PORT --trust-remote-code \
 --tensor-parallel-size=$TP --data-parallel-size=1 \
---cuda-graph-max-bs 256 --max-running-requests 256 --mem-fraction-static 0.9 \
+--cuda-graph-max-bs 128 --max-running-requests 128 --mem-fraction-static 0.9 \
 --ep-size $EP_SIZE \
 --disable-radix-cache > $SERVER_LOG 2>&1 &
 
