@@ -1253,7 +1253,7 @@ dsocr-bf16-b200-sglang:
   model-prefix: dsocr
   runner: b200-shaderform10
   precision: bf16
-  framework: NA
+  framework: sglang
   multinode: false
   seq-len-configs:
   - isl: 1024
