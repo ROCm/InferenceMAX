@@ -64,5 +64,7 @@ mi355x:
 mi355x-m15-17:
 - 'mi355x-amdatom'
 - 'mi355x-amdatomtw'
+mi355x-p01-g42:
+- 'mi355x-amdtwatom'
 gb200:
 - gb200-nv_0

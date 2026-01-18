@@ -22,16 +22,21 @@ else
 fi
 
 if [ "$EP_SIZE" -gt 1 ]; then
-  EP=" --enable-expert-parallel"
+  EP=" --enable-expert-parallel "
 else
   EP=" "
 fi
 
+if [[ "$DP_ATTENTION" == "true" ]]; then
+  DP=" --enable-dp-attention "
+else
+  DP=" "
+fi
+
 set -x
-export HSA_NO_SCRATCH_RECLAIM=1
 python3 -m atom.entrypoints.openai_server \
     --model $MODEL \
     --server-port $PORT \
     -tp $TP \
     --kv_cache_dtype fp8 \
-    $CALCULATED_MAX_MODEL_LEN $EP
+    $CALCULATED_MAX_MODEL_LEN $EP $DP
