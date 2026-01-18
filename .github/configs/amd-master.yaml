@@ -181,7 +181,7 @@ dsr1-fp4-mi355x-atom:
   image: rocm/atom:nightly_gfx950_202601170238
   model: amd/DeepSeek-R1-0528-MXFP4-Preview
   model-prefix: dsr1
-  runner: mi355x-m15-17
+  runner: mi355x-p01-g42
   precision: fp4
   framework: atom
   multinode: false
@@ -226,7 +226,7 @@ dsr1-fp8-mi355x-atom:
   image: rocm/atom:nightly_gfx950_202601170238
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
-  runner: mi355x-m15-17
+  runner: mi355x-p01-g42
   precision: fp8
   framework: atom
   multinode: false
@@ -248,7 +248,7 @@ gptoss-fp4-mi300x-atom:
   image: rocm/atom:nightly_gfx950_202601170238
   model: openai/gpt-oss-120b
   model-prefix: gptoss
-  runner: mi300x-p01-g42
+  runner: mi300x-tw033
   precision: fp4
   framework: atom
   multinode: false
@@ -257,24 +257,23 @@ gptoss-fp4-mi300x-atom:
     osl: 1024
     search-space:
     - { tp: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 2, dp-attn: true, conc-start: 4, conc-end: 128 }
-#    - { tp: 8, conc-start: 4, conc-end: 4 }
-#  - isl: 1024
-#    osl: 8192
-#    search-space:
-#    - { tp: 1, conc-start: 4, conc-end: 4 }
-#    - { tp: 8, conc-start: 4, conc-end: 4 }
-#  - isl: 8192
-#    osl: 1024
-#    search-space:
-#    - { tp: 1, conc-start: 4, conc-end: 4 }
-#    - { tp: 8, conc-start: 4, conc-end: 4 }
+    - { tp: 8, conc-start: 4, conc-end: 4 }
+  - isl: 1024
+    osl: 8192
+    search-space:
+    - { tp: 1, conc-start: 4, conc-end: 4 }
+    - { tp: 8, conc-start: 4, conc-end: 4 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 1, conc-start: 4, conc-end: 4 }
+    - { tp: 8, conc-start: 4, conc-end: 4 }
 
 gptoss-fp4-mi355x-atom:
   image: rocm/atom:nightly_gfx950_202601170238
   model: openai/gpt-oss-120b
   model-prefix: gptoss
-  runner: mi355x-m15-17
+  runner: mi355x-p01-g42
   precision: fp4
   framework: atom
   multinode: false
@@ -283,17 +282,19 @@ gptoss-fp4-mi355x-atom:
     osl: 1024
     search-space:
     - { tp: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
-  - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
-  - isl: 8192
-    osl: 1024
-    search-space:
-    - { tp: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 2, dp-attn: false, conc-start: 4, conc-end: 128 }
+    - { tp: 2, dp-attn: true, conc-start: 4, conc-end: 128 }
+#    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
+#  - isl: 1024
+#    osl: 8192
+#    search-space:
+#    - { tp: 1, conc-start: 4, conc-end: 128 }
+#    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
+#  - isl: 8192
+#    osl: 1024
+#    search-space:
+#    - { tp: 1, conc-start: 4, conc-end: 128 }
+#    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
 
 qwen3.235b-fp8-mi355x-vllm:
   image: rocm/vllm-dev:nightly
