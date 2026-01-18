@@ -17,7 +17,7 @@
 
 HF_HUB_CACHE_MOUNT="/mnt/hf_hub_cache/"  # Temp solution
 FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "atom" ]] && printf '_atom' || printf '')
-FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "sglang" ]] && printf '_sglang' || printf '')
+#FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "sglang" ]] && printf '_sglang' || printf '')
 PORT=8888
 
 server_name="bmk-server"
@@ -42,9 +42,6 @@ else
     export NUM_PROMPTS=$(( CONC * 10 ))
   fi
 fi
-
-# TODO: override
-export NUM_PROMPTS=$(( CONC * 10 ))
 
 set -x
 docker pull $IMAGE
