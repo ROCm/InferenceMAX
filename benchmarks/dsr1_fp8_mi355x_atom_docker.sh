@@ -37,7 +37,7 @@ fi
 
 set -x
 
-export BLOCK_SIZE=1
+BLOCK_SIZE=${BLOCK_SIZE:-16}
 python3 -m atom.entrypoints.openai_server \
     --model $MODEL \
     --server-port $PORT \

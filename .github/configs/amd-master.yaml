@@ -234,15 +234,15 @@ dsr1-fp8-mi355x-atom:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, conc-start: 4, conc-end: 128 }
   - isl: 1024
     osl: 8192
     search-space:
-    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, conc-start: 4, conc-end: 128 }
   - isl: 8192
     osl: 1024
     search-space:
-    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, conc-start: 4, conc-end: 128 }
 
 gptoss-fp4-mi300x-atom:
   image: rocm/atom:nightly_gfx950_202601170238
@@ -281,18 +281,18 @@ gptoss-fp4-mi355x-atom:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 1, ep: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 1, conc-start: 16, conc-end: 128 }
+    - { tp: 8, ep: 1, conc-start: 4, conc-end: 32 }
   - isl: 1024
     osl: 8192
     search-space:
-    - { tp: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 1, conc-start: 16, conc-end: 128 }
+    - { tp: 8, ep: 1, conc-start: 4, conc-end: 64 }
   - isl: 8192
     osl: 1024
     search-space:
     - { tp: 1, conc-start: 4, conc-end: 128 }
-    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, ep: 1, conc-start: 4, conc-end: 16 }
 
 qwen3.235b-fp8-mi355x-vllm:
   image: rocm/vllm-dev:nightly
