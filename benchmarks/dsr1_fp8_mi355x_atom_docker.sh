@@ -35,8 +35,9 @@ else
   export ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION=0
 fi
 
-set -x
+SERVER_LOG=$(mktemp /tmp/server-XXXXXX.log)
 
+set -x
 python3 -m atom.entrypoints.openai_server \
     --model $MODEL \
     --server-port $PORT \
