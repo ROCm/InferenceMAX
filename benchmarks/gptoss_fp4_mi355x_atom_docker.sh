@@ -31,7 +31,7 @@ if [[ "$DP_ATTENTION" == "true" ]]; then
   DP=" --enable-dp-attention "
   # hack we use pure DP
   TP=1
-  EP= " "
+  EP=" "
   DP=" -dp 2 "
 else
   DP=" "
