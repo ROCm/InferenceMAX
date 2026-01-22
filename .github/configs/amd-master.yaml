@@ -178,7 +178,7 @@ gptoss-fp4-mi355x-vllm:
     - { tp: 8, conc-start: 4, conc-end: 8 }
 
 dsr1-fp4-mi355x-atom:
-  image: rocm/atom:nightly_gfx950_202601170238
+  image: rocm/atom:latest
   model: amd/DeepSeek-R1-0528-MXFP4-Preview
   model-prefix: dsr1
   runner: mi355x-p01-g42
@@ -223,7 +223,7 @@ dsr1-fp8-mi300x-atom:
     - { tp: 8, conc-start: 4, conc-end: 4 }
 
 dsr1-fp8-mi355x-atom:
-  image: rocm/atom:nightly_gfx950_202601170238
+  image: rocm/atom:latest
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
   runner: mi355x-p01-g42
@@ -270,7 +270,7 @@ gptoss-fp4-mi300x-atom:
     - { tp: 8, conc-start: 4, conc-end: 4 }
 
 gptoss-fp4-mi355x-atom:
-  image: rocm/atom:nightly_202601200318
+  image: rocm/atom:latest
   model: openai/gpt-oss-120b
   model-prefix: gptoss
   runner: mi355x-p01-g42
@@ -281,6 +281,7 @@ gptoss-fp4-mi355x-atom:
   - isl: 1024
     osl: 1024
     search-space:
+    - { tp: 1, conc-start: 4, conc-end: 128 }
     - { tp: 2, ep: 2, dp-attn: true, conc-start: 4, conc-end: 128 }
 #    - { tp: 8, ep: 8, conc-start: 4, conc-end: 128 }
 #  - isl: 1024
