@@ -5,22 +5,6 @@ concurrency:
     group: sweep-${{ github.event.pull_request.number || github.sha }}
     cancel-in-progress: true
 
-on:
-    push:
-        branches:
-            - main
-        paths:
-            - "perf-changelog.yaml"
-    pull_request:
-        branches:
-            - main
-        types:
-            - ready_for_review
-            - synchronize
-            - labeled
-        paths:
-            - "perf-changelog.yaml"
-
 jobs:
     setup:
         runs-on: ubuntu-latest
