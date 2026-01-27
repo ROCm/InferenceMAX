@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 HF_HUB_CACHE_MOUNT="/data/models/hf_hub_cache/"
-PORT=8888
+PORT=8818
 
 MODEL_CODE="${EXP_NAME%%_*}"
 FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "trt" ]] && printf '_trt' || printf '')
