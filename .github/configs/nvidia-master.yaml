@@ -24,7 +24,7 @@ dsr1-fp4-b200-sglang:
     - { tp: 8, ep: 8, conc-start: 4, conc-end: 16 }
 
 dsr1-fp4-b200-trt:
-  image: nvcr.io#nvidia/tensorrt-llm/release:1.1.0rc2.post2
+  image: nvcr.io/nvidia/tensorrt-llm/release:1.1.0rc2.post2
   model: nvidia/DeepSeek-R1-0528-FP4-V2
   model-prefix: dsr1
   runner: b200-gpua818
@@ -75,7 +75,7 @@ dsr1-fp4-b200-trt:
     - { tp: 8, ep: 8, dp-attn: true, conc-start: 64, conc-end: 256 }
 
 dsr1-fp4-b200-trt-mtp:
-  image: nvcr.io#nvidia/tensorrt-llm/release:1.1.0rc2.post2
+  image: nvcr.io/nvidia/tensorrt-llm/release:1.1.0rc2.post2
   model: nvidia/DeepSeek-R1-0528-FP4-V2
   model-prefix: dsr1
   runner: b200-gpua818
@@ -149,7 +149,7 @@ dsr1-fp8-b200-sglang:
     - { tp: 4, ep: 1, conc-start: 4, conc-end: 32 }
 
 dsr1-fp8-b200-trt:
-  image: nvcr.io#nvidia/tensorrt-llm/release:1.1.0rc2.post2
+  image: nvcr.io/nvidia/tensorrt-llm/release:1.1.0rc2.post2
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
   runner: b200-gpua818
@@ -176,7 +176,7 @@ dsr1-fp8-b200-trt:
     - { tp: 8, ep: 8, conc-start: 4, conc-end: 64 }
 
 dsr1-fp8-b200-trt-mtp:
-  image: nvcr.io#nvidia/tensorrt-llm/release:1.1.0rc2.post2
+  image: nvcr.io/nvidia/tensorrt-llm/release:1.1.0rc2.post2
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
   runner: b200-gpua818
@@ -227,7 +227,7 @@ dsr1-fp8-h200-sglang:
     - { tp: 8, conc-start: 4, conc-end: 64 }
 
 dsr1-fp8-h200-trt:
-  image: nvcr.io#nvidia/tensorrt-llm/release:1.1.0rc2.post2
+  image: nvcr.io/nvidia/tensorrt-llm/release:1.1.0rc2.post2
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
   runner: h200
@@ -254,7 +254,7 @@ dsr1-fp8-h200-trt:
     - { tp: 8, ep: 8, dp-attn: true, conc-start: 64, conc-end: 64 }
 
 dsr1-fp8-h200-trt-mtp:
-  image: nvcr.io#nvidia/tensorrt-llm/release:1.1.0rc2.post2
+  image: nvcr.io/nvidia/tensorrt-llm/release:1.1.0rc2.post2
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
   runner: h200
@@ -283,7 +283,7 @@ dsr1-fp8-h200-trt-mtp:
     - { tp: 8, ep: 8, dp-attn: true, conc-start: 64, conc-end: 256, spec-decoding: mtp }
 
 gptoss-fp4-b200-trt:
-  image: nvcr.io#nvidia/tensorrt-llm/release:1.2.0rc2
+  image: nvcr.io/nvidia/tensorrt-llm/release:1.2.0rc2
   model: openai/gpt-oss-120b
   model-prefix: gptoss
   runner: b200-gpua818
@@ -378,7 +378,7 @@ gptoss-fp4-h100-vllm:
     - { tp: 8, conc-start: 4, conc-end: 16 }
 
 gptoss-fp4-h200-trt:
-  image: nvcr.io#nvidia/tensorrt-llm/release:gpt-oss-dev
+  image: nvcr.io/nvidia/tensorrt-llm/release:gpt-oss-dev
   model: openai/gpt-oss-120b
   model-prefix: gptoss
   runner: h200
@@ -441,7 +441,7 @@ gptoss-fp4-h200-vllm:
     - { tp: 8, conc-start: 4, conc-end: 32 }
 
 dsr1-fp4-gb200-dynamo-trt:
-  image: nvcr.io#nvidia/ai-dynamo/tensorrtllm-runtime:0.5.1-rc0.pre3
+  image: nvcr.io/nvidia/ai-dynamo/tensorrtllm-runtime:0.5.1-rc0.pre3
   # Models are pre-downloaded to this path on GB200 runner to avoid repeated downloading
   model: /mnt/lustre01/models/deepseek-r1-0528-fp4-v2
   model-prefix: dsr1
@@ -1159,7 +1159,7 @@ dsr1-fp4-gb200-dynamo-sglang:
         - "DECODE_NODES=8"
 
 gptoss-fp4-gb200-dynamo-trt:
-  image: nvcr.io#nvidia/ai-dynamo/tensorrtllm-runtime:0.7.0.post2
+  image: nvcr.io/nvidia/ai-dynamo/tensorrtllm-runtime:0.7.0.post2
   model: openai/gpt-oss-120b
   model-prefix: gptoss
   runner: gb200
