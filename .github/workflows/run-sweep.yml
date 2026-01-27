@@ -5,6 +5,9 @@ concurrency:
     group: sweep-${{ github.event.pull_request.number || github.sha }}
     cancel-in-progress: true
 
+on:
+    workflow_dispatch:
+
 jobs:
     setup:
         runs-on: ubuntu-latest
