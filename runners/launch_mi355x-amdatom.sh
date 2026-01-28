@@ -17,7 +17,6 @@
 
 HF_HUB_CACHE_MOUNT="/mnt/hf_hub_cache/"  # Temp solution
 FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "atom" ]] && printf '_atom' || printf '')
-FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "sglang" ]] && printf '_sglang' || printf '')
 PORT=8888
 
 server_name="bmk-server"
@@ -61,7 +60,7 @@ docker run --rm --init --network host --shm-size=16g --name=$server_name \
 -e RESULT_FILENAME -e RANDOM_RANGE_RATIO -e NUM_PROMPTS \
 --entrypoint=/bin/bash \
 $IMAGE \
-benchmarks/"${EXP_NAME%%_*}_${PRECISION}_mi355x${FRAMEWORK_SUFFIX}_docker.sh"
+benchmarks/"${EXP_NAME%%_*}_${PRECISION}_mi355x${FRAMEWORK_SUFFIX}.sh"
 
 if ls gpucore.* 1> /dev/null 2>&1; then
   echo "gpucore files exist. not good"
