@@ -231,7 +231,6 @@ run_benchmark_serving() {
 
     # Build benchmark command
     local benchmark_cmd=(
-        export PYTHONDONTWRITEBYTECODE=1
         python3 "$workspace_dir/utils/bench_serving/benchmark_serving.py"
         --model "$model"
         --backend "$backend"
