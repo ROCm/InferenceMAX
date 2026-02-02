@@ -43,6 +43,7 @@ EOF
 #export VLLM_ROCM_USE_AITER_FUSED_MOE_A16W4=1
 
 export VLLM_ROCM_USE_AITER=1
+export VLLM_ROCM_USE_AITER_MOE=0
 
 SERVER_LOG=$(mktemp /tmp/server-XXXXXX.log)
 

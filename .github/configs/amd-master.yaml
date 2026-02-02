@@ -337,7 +337,7 @@ kimik2.inst0905-fp8-mi355x-vllm:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 4 }
+    - { tp: 4, conc-start: 4, conc-end: 4 }
 
 kimik2think-int4-mi355x-vllm:
   image: rocm/vllm-dev:nightly
@@ -351,7 +351,7 @@ kimik2think-int4-mi355x-vllm:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 4 }
+    - { tp: 4, conc-start: 4, conc-end: 4 }
 
 glm4p7-fp4-mi355x-vllm:
   image: rocm/vllm-dev:nightly
@@ -452,7 +452,7 @@ kimik2.inst0905-fp8-mi355x-sglang:
   - isl: 128
     osl: 128
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 4 }
+    - { tp: 4, conc-start: 4, conc-end: 4 }
 
 kimik2think-int4-mi355x-sglang:
   image: lmsysorg/sglang:v0.5.7-rocm700-mi35x
@@ -466,7 +466,7 @@ kimik2think-int4-mi355x-sglang:
   - isl: 128
     osl: 128
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 4 }
+    - { tp: 4, conc-start: 4, conc-end: 4 }
 
 glm4p7-fp4-mi355x-sglang:
   image: lmsysorg/sglang:v0.5.7-rocm700-mi35x

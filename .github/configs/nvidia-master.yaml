@@ -1088,7 +1088,7 @@ kimik2.inst0905-fp8-b200-vllm:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 kimik2think-int4-b200-vllm:
   image: vllm/vllm-openai:nightly
@@ -1102,7 +1102,7 @@ kimik2think-int4-b200-vllm:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 glm4p7-fp4-b200-vllm:
   image: vllm/vllm-openai:nightly
@@ -1203,7 +1203,7 @@ kimik2.inst0905-fp8-b200-sglang:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 kimik2think-int4-b200-sglang:
   image: lmsysorg/sglang:latest
@@ -1217,7 +1217,7 @@ kimik2think-int4-b200-sglang:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 glm4p7-fp4-b200-sglang:
   image: lmsysorg/sglang:latest
