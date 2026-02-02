@@ -1059,10 +1059,18 @@ qwen3.235b-fp8-b200-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 128
-    osl: 128
+  - isl: 1024
+    osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 4 }
+    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 1024
+    osl: 8192
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 qwencoder3.480b-fp8-b200-vllm:
   image: vllm/vllm-openai:v0.14.1-cu130
@@ -1073,10 +1081,18 @@ qwencoder3.480b-fp8-b200-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 128
-    osl: 128
+  - isl: 1024
+    osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 4 }
+    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 1024
+    osl: 8192
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 kimik2.inst0905-fp8-b200-vllm:
   image: vllm/vllm-openai:v0.14.1-cu130
@@ -1087,10 +1103,18 @@ kimik2.inst0905-fp8-b200-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 128
-    osl: 128
+  - isl: 1024
+    osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 4 }
+    - { tp: 8, conc-start: 4, conc-end: 128 }
+  - isl: 1024
+    osl: 8192
+    search-space:
+    - { tp: 8, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 8, conc-start: 4, conc-end: 128 }
 
 kimik2think-int4-b200-vllm:
   image: vllm/vllm-openai:v0.14.1-cu130
@@ -1101,10 +1125,18 @@ kimik2think-int4-b200-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 128
-    osl: 128
+  - isl: 1024
+    osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 4 }
+    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 1024
+    osl: 8192
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 glm4p7-fp4-b200-vllm:
   image: vllm/vllm-openai:v0.14.1-cu130
@@ -1115,10 +1147,18 @@ glm4p7-fp4-b200-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 128
-    osl: 128
+  - isl: 1024
+    osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 4 }
+    - { tp: 8, conc-start: 4, conc-end: 128 }
+  - isl: 1024
+    osl: 8192
+    search-space:
+    - { tp: 8, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 8, conc-start: 4, conc-end: 128 }
 
 dsv32-fp8-b200-vllm:
   image: vllm/vllm-openai:v0.14.1-cu130
@@ -1129,10 +1169,18 @@ dsv32-fp8-b200-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 128
-    osl: 128
+  - isl: 1024
+    osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 4 }
+    - { tp: 8, conc-start: 4, conc-end: 128 }
+  - isl: 1024
+    osl: 8192
+    search-space:
+    - { tp: 8, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 8, conc-start: 4, conc-end: 128 }
 
 dsocr-bf16-b200-vllm:
   image: vllm/vllm-openai:v0.14.1-cu130
@@ -1143,10 +1191,18 @@ dsocr-bf16-b200-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 128
-    osl: 128
+  - isl: 1024
+    osl: 1024
     search-space:
-    - { tp: 2, conc-start: 4, conc-end: 4 }
+    - { tp: 2, conc-start: 4, conc-end: 128 }
+  - isl: 1024
+    osl: 8192
+    search-space:
+    - { tp: 2, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 2, conc-start: 4, conc-end: 128 }
 
 minimaxm2p1-fp8-b200-vllm:
   image: vllm/vllm-openai:v0.14.1-cu130
@@ -1157,10 +1213,18 @@ minimaxm2p1-fp8-b200-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 128
-    osl: 128
+  - isl: 1024
+    osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 4 }
+    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 1024
+    osl: 8192
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 
 # SGL
@@ -1205,7 +1269,7 @@ kimik2.inst0905-fp8-b200-sglang:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
+    - { tp: 8, conc-start: 4, conc-end: 128 }
 
 kimik2think-int4-b200-sglang:
   image: lmsysorg/sglang:latest
