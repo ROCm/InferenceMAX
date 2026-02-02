@@ -45,7 +45,9 @@ python3 -m atom.entrypoints.openai_server \
     --server-port $PORT \
     -tp $TP \
     --kv_cache_dtype fp8 $CALCULATED_MAX_MODEL_LEN $EP \
-    --block-size $BLOCK_SIZE > $SERVER_LOG 2>&1 &
+    --block-size $BLOCK_SIZE \
+    --method mtp  --num-speculative-tokens 1 \
+    > $SERVER_LOG 2>&1 &
 
 SERVER_PID=$!
 
