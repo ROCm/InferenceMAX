@@ -2,11 +2,11 @@
 HF_HUB_CACHE_MOUNT="/mnt/hf_hub_cache/"  # Temp solution
 
 MODEL_CODE="${EXP_NAME%%_*}"
-FRAMEWORK_SUFFIX=$(
-  [[ "$FRAMEWORK" == "atom" ]] && printf '_atom' ||
-  [[ "$FRAMEWORK" == "sglang" ]] && printf '_sglang' ||
-  printf ''
-)
+if [[ "$FRAMEWORK" == "atom" ]] then;
+  FRAMEWORK_SUFFIX="_atom"
+elif [[ "$FRAMEWORK" == "sglang" ]]; then
+  FRAMEWORK_SUFFIX="_sglang"
+fi
 SPEC_SUFFIX=$([[ "$SPEC_DECODING" == "mtp" ]] && printf '_mtp' || printf '')
 
 server_name="bmk-server"
