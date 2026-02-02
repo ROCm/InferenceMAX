@@ -6,20 +6,7 @@ concurrency:
     cancel-in-progress: true
 
 on:
-    push:
-        branches:
-            - main
-        paths:
-            - "perf-changelog.yaml"
-    pull_request:
-        branches:
-            - main
-        types:
-            - ready_for_review
-            - synchronize
-            - labeled
-        paths:
-            - "perf-changelog.yaml"
+    workflow_dispatch:
 
 jobs:
     check-newline:
