@@ -1,6 +1,11 @@
 #!/usr/bin/bash
 
-HF_HUB_CACHE_MOUNT="/mnt/nvme2n1"
+if [[ "$MODEL" == "moonshotai/Kimi-K2-Instruct-0905" || "$MODEL" == "moonshotai/Kimi-K2-Thinking" ]]; then
+  HF_HUB_CACHE_MOUNT="/mnt/nvme1n1"
+else
+  HF_HUB_CACHE_MOUNT="/mnt/nvme2n1"
+fi
+
 FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "trt" ]] && printf '_trt' || printf '')
 FRAMEWORK_SUFFIX=$([[ "$FRAMEWORK" == "sglang" ]] && printf '_sglang' || printf '')
 PORT=8888
