@@ -73,3 +73,6 @@ if [ "${RUN_EVAL}" = "true" ]; then
     append_lm_eval_summary
 fi
 set +x
+
+set -x
+rm -rf ./utils/bench_serving\
