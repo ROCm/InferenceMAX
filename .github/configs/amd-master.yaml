@@ -25,7 +25,7 @@ dsr1-fp4-mi355x-atom:
   image: rocm/atom:rocm7.1.1-ubuntu24.04-pytorch2.9-atom0.1.1-MI350x
   model: amd/DeepSeek-R1-0528-MXFP4-Preview
   model-prefix: dsr1
-  runner: mi355x-amdatom
+  runner: mi355x-p01-g42
   precision: fp4
   framework: atom
   multinode: false
@@ -206,7 +206,7 @@ gptoss-fp4-mi355x-atom:
   image: rocm/atom:rocm7.1.1-ubuntu24.04-pytorch2.9-atom0.1.1-MI350x
   model: openai/gpt-oss-120b
   model-prefix: gptoss
-  runner: mi355x-amdatom
+  runner: mi355x-p01-g42
   precision: fp4
   framework: atom
   multinode: false
@@ -231,7 +231,7 @@ dsr1-fp8-mi355x-atom:
   image: rocm/atom:rocm7.1.1-ubuntu24.04-pytorch2.9-atom0.1.1-MI350x
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
-  runner: mi355x-amdatom
+  runner: mi355x-p01-g42
   precision: fp8
   # WIP framwork (no customers yet)
   framework: atom
@@ -254,7 +254,7 @@ dsr1-fp8-mi355x-atom-mtp:
   image: rocm/atom-dev:nightly_202602020423
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
-  runner: mi355x-amdatom
+  runner: mi355x-p01-g42
   precision: fp8
   # WIP framwork (no customers yet)
   framework: atom
