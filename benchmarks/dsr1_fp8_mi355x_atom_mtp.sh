@@ -46,7 +46,9 @@ python3 -m atom.entrypoints.openai_server \
     -tp $TP \
     --kv_cache_dtype fp8 $CALCULATED_MAX_MODEL_LEN $EP \
     --block-size $BLOCK_SIZE \
-    --method mtp  --num-speculative-tokens 1 \
+    --method mtp \
+    --num-speculative-tokens 1 \
+    --use-chat-template \
     > $SERVER_LOG 2>&1 &
 
 SERVER_PID=$!
