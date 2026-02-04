@@ -121,7 +121,6 @@ run_benchmark_serving() {
     local workspace_dir=""
     local use_chat_template=false
     local server_pid=""
-    local endpoint=""
 
     while [[ $# -gt 0 ]]; do
         case $1 in
@@ -175,10 +174,6 @@ run_benchmark_serving() {
                 ;;
             --server-pid)
                 server_pid="$2"
-                shift 2
-                ;;
-            --endpoint)
-                endpoint="$2"
                 shift 2
                 ;;
             *)
@@ -258,11 +253,6 @@ run_benchmark_serving() {
     # Add --use-chat-template if requested
     if [[ "$use_chat_template" == true ]]; then
         benchmark_cmd+=(--use-chat-template)
-    fi
-
-    # Add --endpoint if endpoint is set
-    if [[ -n "$endpoint" ]]; then
-        benchmark_cmd+=(--endpoint "$endpoint")
     fi
 
     # Run benchmark with optional server monitoring
