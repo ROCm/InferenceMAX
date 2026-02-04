@@ -48,7 +48,6 @@ python3 -m atom.entrypoints.openai_server \
     --block-size $BLOCK_SIZE \
     --method mtp \
     --num-speculative-tokens 1 \
-    --use-chat-template \
     > $SERVER_LOG 2>&1 &
 
 SERVER_PID=$!
@@ -67,7 +66,9 @@ run_benchmark_serving \
     --num-prompts "$((CONC * 10))" \
     --max-concurrency "$CONC" \
     --result-filename "$RESULT_FILENAME" \
-    --result-dir /workspace/
+    --result-dir /workspace/ \
+    --use-chat-template \
+    --endpoint /v1/chat/completions
 
 # After throughput, run evaluation only if RUN_EVAL is true
 if [ "${RUN_EVAL}" = "true" ]; then
