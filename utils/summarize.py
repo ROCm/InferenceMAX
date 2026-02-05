@@ -1,6 +1,7 @@
 import sys
 import json
 from pathlib import Path
+from sympy import true, false
 from tabulate import tabulate
 
 # Header constants
@@ -40,8 +41,8 @@ for result_path in results_dir.rglob('*.json'):
         result = json.load(f)
     results.append(result)
 
-single_node_results = [r for r in results if r.get('is_multinode') is False]
-multinode_results = [r for r in results if r.get('is_multinode') is True]
+single_node_results = [r for r in results if r.get('is_multinode') == false]
+multinode_results = [r for r in results if r.get('is_multinode') == true]
 
 # Single-node and multi-node results have different fields and therefore need to be printed separately
 if single_node_results:
