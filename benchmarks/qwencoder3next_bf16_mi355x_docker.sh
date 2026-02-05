@@ -24,6 +24,7 @@ max-model-len: $MAX_MODEL_LEN
 EOF
 
 export VLLM_ROCM_USE_AITER=1
+export VLLM_ROCM_USE_AITER_UNIFIED_ATTENTION=1
 
 SERVER_LOG=/workspace/server.log
 PORT=${PORT:-8888}
