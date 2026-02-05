@@ -40,8 +40,8 @@ for result_path in results_dir.rglob('*.json'):
         result = json.load(f)
     results.append(result)
 
-single_node_results = [r for r in results if not r['is_multinode']]
-multinode_results = [r for r in results if r['is_multinode']]
+single_node_results = [r for r in results if r.get('is_multinode') is False]
+multinode_results = [r for r in results if r.get('is_multinode') is True]
 
 # Single-node and multi-node results have different fields and therefore need to be printed separately
 if single_node_results:

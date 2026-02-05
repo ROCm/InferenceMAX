@@ -1191,18 +1191,19 @@ dsocr-bf16-b200-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 1024
-    osl: 1024
-    search-space:
-    - { tp: 2, conc-start: 4, conc-end: 128 }
-  - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 2, conc-start: 4, conc-end: 128 }
+#  - isl: 1024
+#    osl: 1024
+#    search-space:
+#    - { tp: 2, conc-start: 4, conc-end: 128 }
+#  - isl: 1024
+#    osl: 8192
+#    search-space:
+#    - { tp: 2, conc-start: 4, conc-end: 128 }
   - isl: 8192
     osl: 1024
     search-space:
-    - { tp: 2, conc-start: 4, conc-end: 128 }
+    - { tp: 2, conc-start: 4, conc-end: 4 }
+    #- { tp: 2, conc-start: 4, conc-end: 128 }
 
 minimaxm2p1-fp8-b200-vllm:
   image: vllm/vllm-openai:v0.14.1-cu130
