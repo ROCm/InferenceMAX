@@ -46,7 +46,7 @@ EOF
 
 SERVER_LOG=$(mktemp /tmp/server-XXXXXX.log)
 
-export VLLM_ALLOW_LONG_MAX_MODEL_LEN=1
+#export VLLM_ALLOW_LONG_MAX_MODEL_LEN=1
 
 set -x
 vllm serve $MODEL --host 0.0.0.0 --port $PORT --config config.yaml \

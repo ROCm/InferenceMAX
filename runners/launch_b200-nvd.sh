@@ -41,6 +41,8 @@ else
   export NUM_PROMPTS=$(( CONC * 10 ))
 fi
 
+export NUM_PROMPTS=$(( CONC * 1 ))
+
 docker run --rm --init --network host --name $server_name \
 --runtime nvidia --gpus all --ipc host --privileged --shm-size=16g --ulimit memlock=-1 --ulimit stack=67108864 \
 -v $HF_HUB_CACHE_MOUNT:$HF_HUB_CACHE \
