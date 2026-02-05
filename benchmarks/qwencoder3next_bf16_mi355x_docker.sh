@@ -12,6 +12,11 @@ check_env_vars \
     RANDOM_RANGE_RATIO \
     RESULT_FILENAME
 
+if [[ -n "$SLURM_JOB_ID" ]]; then
+  echo "JOB $SLURM_JOB_ID running on $SLURMD_NODENAME"
+fi
+
+hf download "$MODEL"
 
 cat > config.yaml << EOF
 no-enable-prefix-caching: true
@@ -19,7 +24,7 @@ max-model-len: $MAX_MODEL_LEN
 EOF
 
 export VLLM_ROCM_USE_AITER=1
-export VLLM_ROCM_USE_AITER_MLA=0
+export VLLM_ROCM_USE_AITER_UNIFIED_ATTENTION=1
 
 SERVER_LOG=/workspace/server.log
 PORT=${PORT:-8888}
@@ -34,9 +39,6 @@ vllm serve $MODEL --host 0.0.0.0 --port $PORT \
 > $SERVER_LOG 2>&1 &
 
 SERVER_PID=$!
-
-# Source benchmark utilities
-source "$(dirname "$0")/benchmark_lib.sh"
 
 # Wait for server to be ready
 wait_for_server_ready --port "$PORT" --server-log "$SERVER_LOG" --server-pid "$SERVER_PID"
