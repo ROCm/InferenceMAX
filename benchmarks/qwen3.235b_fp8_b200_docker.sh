@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+#NV sucks...
+rm -rf  /usr/local/cuda-13.0/compat/libcuda.so.1
+
 source "$(dirname "$0")/benchmark_lib.sh"
 
 check_env_vars \
