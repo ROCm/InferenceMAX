@@ -30,7 +30,7 @@ jobs:
 
       - name: Print summary
         run: |
-          pip install tabulate
+          pip install tabulate sympy
           python3 utils/summarize.py results/ >> $GITHUB_STEP_SUMMARY
 
       - name: Aggregate results
