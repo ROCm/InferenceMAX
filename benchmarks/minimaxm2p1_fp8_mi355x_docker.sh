@@ -18,7 +18,6 @@ fi
 
 hf download "$MODEL"
 
-
 cat > config.yaml << EOF
 no-enable-prefix-caching: true
 max-model-len: $MAX_MODEL_LEN
@@ -26,7 +25,8 @@ EOF
 
 export VLLM_ROCM_USE_AITER=1
 
-SERVER_LOG=$(mktemp /tmp/server-XXXXXX.log)
+SERVER_LOG=/workspace/server.log
+PORT=${PORT:-8888}
 
 set -x
 vllm serve $MODEL --host 0.0.0.0 --port $PORT \
