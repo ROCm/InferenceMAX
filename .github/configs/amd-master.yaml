@@ -344,7 +344,7 @@ qwencoder3.480b-fp8-mi355x-vllm:
 qwencoder3next_bf16-mi355x-vllm:
   image: vllm/vllm-openai-rocm:v0.15.1 
   model: Qwen/Qwen3-Coder-Next
-  model-prefix: qwencoder3.480b
+  model-prefix: qwencoder3next
   runner: mi355x-m15-17
   precision: bf16
   framework: vllm
