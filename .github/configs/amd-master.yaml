@@ -342,7 +342,8 @@ qwencoder3.480b-fp8-mi355x-vllm:
 #    - { tp: 4, conc-start: 4, conc-end: 4 }
 
 qwencoder3next_bf16-mi355x-vllm:
-  image: vllm/vllm-openai-rocm:v0.15.1 
+  #image: vllm/vllm-openai-rocm:v0.15.1 
+  image:  rocm/pytorch-private:vllm-openai-rocm_v0.15.1_qwen3nextpatch
   model: Qwen/Qwen3-Coder-Next
   model-prefix: qwencoder3next
   runner: mi355x-m15-17
