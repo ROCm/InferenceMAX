@@ -298,7 +298,7 @@ gptoss-fp4-mi355x-atom:
 # VLLM
 
 qwen3.235b-fp8-mi355x-vllm:
-  image: rocm/vllm-dev:nightly
+  image: vllm/vllm-openai-rocm:v0.15.1 
   model: Qwen/Qwen3-235B-A22B-Instruct-2507-FP8
   model-prefix: qwen3.235b
   runner: mi355x-m15-17
@@ -309,18 +309,18 @@ qwen3.235b-fp8-mi355x-vllm:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
-  - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
-  - isl: 8192
-    osl: 1024
-    search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
+    - { tp: 4, conc-start: 4, conc-end: 4 }
+#  - isl: 1024
+#    osl: 8192
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 4 }
+#  - isl: 8192
+#    osl: 1024
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 4 }
 
 qwencoder3.480b-fp8-mi355x-vllm:
-  image: rocm/vllm-dev:nightly
+  image: vllm/vllm-openai-rocm:v0.15.1 
   model: Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8
   model-prefix: qwencoder3.480b
   runner: mi355x-m15-17
@@ -331,18 +331,40 @@ qwencoder3.480b-fp8-mi355x-vllm:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
+    - { tp: 4, conc-start: 4, conc-end: 4 }
+#  - isl: 1024
+#    osl: 8192
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 4 }
+#  - isl: 8192
+#    osl: 1024
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 4 }
+
+qwencoder3next_bf16-mi355x-vllm:
+  image: vllm/vllm-openai-rocm:v0.15.1 
+  model: Qwen/Qwen3-Coder-Next
+  model-prefix: qwencoder3.480b
+  runner: mi355x-m15-17
+  precision: bf16
+  framework: vllm
+  multinode: false
+  seq-len-configs:
   - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
-  - isl: 8192
     osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
+    - { tp: 4, conc-start: 4, conc-end: 4 }
+#  - isl: 1024
+#    osl: 8192
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 4 }
+#  - isl: 8192
+#    osl: 1024
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 4 }
 
 kimik2.inst0905-fp8-mi355x-vllm:
-  image: rocm/vllm-dev:nightly
+  image: vllm/vllm-openai-rocm:v0.15.1 
   model: moonshotai/Kimi-K2-Instruct-0905
   model-prefix: kimik2.inst0905
   runner: mi355x-m15-17
@@ -353,18 +375,18 @@ kimik2.inst0905-fp8-mi355x-vllm:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-  - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-  - isl: 8192
-    osl: 1024
-    search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, conc-start: 4, conc-end: 4 }
+#  - isl: 1024
+#    osl: 8192
+#    search-space:
+#    - { tp: 8, conc-start: 4, conc-end: 4 }
+#  - isl: 8192
+#    osl: 1024
+#    search-space:
+#    - { tp: 8, conc-start: 4, conc-end: 4 }
 
 kimik2think-int4-mi355x-vllm:
-  image: rocm/vllm-dev:nightly
+  image: vllm/vllm-openai-rocm:v0.15.1 
   model: moonshotai/Kimi-K2-Thinking
   model-prefix: kimik2think
   runner: mi355x-m15-17
@@ -375,18 +397,40 @@ kimik2think-int4-mi355x-vllm:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
+    - { tp: 4, conc-start: 4, conc-end: 4 }
+#  - isl: 1024
+#    osl: 8192
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 4 }
+#  - isl: 8192
+#    osl: 1024
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 4 }
+
+kimik2.5-int4-mi355x-vllm:
+  image: vllm/vllm-openai-rocm:v0.15.1 
+  model: moonshotai/Kimi-K2.5 
+  model-prefix: kimik2.5
+  runner: mi355x-m15-17
+  precision: int4
+  framework: vllm
+  multinode: false
+  seq-len-configs:
   - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
-  - isl: 8192
     osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
+    - { tp: 4, conc-start: 4, conc-end: 4 }
+#  - isl: 1024
+#    osl: 8192
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 4 }
+#  - isl: 8192
+#    osl: 1024
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 4 }
 
 glm4p7-fp4-mi355x-vllm:
-  image: rocm/vllm-dev:nightly
+  image: vllm/vllm-openai-rocm:v0.15.1 
   model: zai-org/GLM-4.7-FP8
   model-prefix: glm4p7
   runner: mi355x-m15-17
@@ -397,18 +441,18 @@ glm4p7-fp4-mi355x-vllm:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-  - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-  - isl: 8192
-    osl: 1024
-    search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+    - { tp: 8, conc-start: 4, conc-end: 4 }
+#  - isl: 1024
+#    osl: 8192
+#    search-space:
+#    - { tp: 8, conc-start: 4, conc-end: 4 }
+#  - isl: 8192
+#    osl: 1024
+#    search-space:
+#    - { tp: 8, conc-start: 4, conc-end: 4 }
 
 dsv32-fp8-mi355x-vllm:
-  image: rocm/vllm-dev:nightly
+  image: vllm/vllm-openai-rocm:v0.15.1 
   model: deepseek-ai/DeepSeek-V3.2
   model-prefix: dsv32
   runner: mi355x-m15-17
@@ -419,40 +463,18 @@ dsv32-fp8-mi355x-vllm:
   - isl: 4
     osl: 4
     search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-  - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-  - isl: 8192
-    osl: 1024
-    search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-
-dsocr-bf16-mi355x-vllm:
-  image: rocm/vllm-dev:nightly
-  model: deepseek-ai/DeepSeek-OCR
-  model-prefix: dsocr
-  runner: mi355x-m15-17
-  precision: bf16
-  framework: vllm
-  multinode: false
-  seq-len-configs:
-  - isl: 1024
-    osl: 1024
-    search-space:
-    - { tp: 2, conc-start: 4, conc-end: 128 }
-  - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 2, conc-start: 4, conc-end: 128 }
-  - isl: 8192
-    osl: 1024
-    search-space:
-    - { tp: 2, conc-start: 4, conc-end: 128 }
+    - { tp: 8, conc-start: 4, conc-end: 4 }
+# - isl: 1024
+#   osl: 8192
+#   search-space:
+#   - { tp: 8, conc-start: 4, conc-end: 4 }
+# - isl: 8192
+#   osl: 1024
+#   search-space:
+#   - { tp: 8, conc-start: 4, conc-end: 4 }
 
 minimaxm2p1-fp8-mi355x-vllm:
-  image: rocm/vllm-dev:nightly
+  image: vllm/vllm-openai-rocm:v0.15.1 
   model: MiniMaxAI/MiniMax-M2.1
   model-prefix: minimaxm2p1
   runner: mi355x-m15-17
@@ -463,16 +485,37 @@ minimaxm2p1-fp8-mi355x-vllm:
   - isl: 1024
     osl: 1024
     search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
-  - isl: 1024
-    osl: 8192
-    search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
-  - isl: 8192
-    osl: 1024
-    search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
+    - { tp: 4, conc-start: 4, conc-end: 4 }
+# - isl: 1024
+#   osl: 8192
+#   search-space:
+#   - { tp: 4, conc-start: 4, conc-end: 4 }
+# - isl: 8192
+#   osl: 1024
+#   search-space:
+#   - { tp: 4, conc-start: 4, conc-end: 4 }
 
+#dsocr-bf16-mi355x-vllm:
+#  image: vllm/vllm-openai-rocm:v0.15.1 
+#  model: deepseek-ai/DeepSeek-OCR
+#  model-prefix: dsocr
+#  runner: mi355x-m15-17
+#  precision: bf16
+#  framework: vllm
+#  multinode: false
+#  seq-len-configs:
+#  - isl: 1024
+#    osl: 1024
+#    search-space:
+#    - { tp: 2, conc-start: 4, conc-end: 4 }
+#  - isl: 1024
+#    osl: 8192
+#    search-space:
+#    - { tp: 2, conc-start: 4, conc-end: 4 }
+#  - isl: 8192
+#    osl: 1024
+#    search-space:
+#    - { tp: 2, conc-start: 4, conc-end: 4 }
 
 # SGLANG
 

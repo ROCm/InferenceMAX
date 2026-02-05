@@ -1,54 +1,35 @@
 #!/usr/bin/env bash
 
-# === Required Env Vars ===
-# MODEL
-# PORT
-# TP
-# CONC
-# ISL
-# OSL
-# MAX_MODEL_LEN
-# RANDOM_RANGE_RATIO
-# RESULT_FILENAME
-# NUM_PROMPTS
+source "$(dirname "$0")/benchmark_lib.sh"
 
-# Calculate max-model-len based on ISL and OSL
-if [ "$ISL" = "1024" ] && [ "$OSL" = "1024" ]; then
-    CALCULATED_MAX_MODEL_LEN=$((ISL + OSL + 20))
-elif [ "$ISL" = "8192" ] || [ "$OSL" = "8192" ]; then
-    CALCULATED_MAX_MODEL_LEN=$((ISL + OSL + 200))
-else
-    CALCULATED_MAX_MODEL_LEN=${MAX_MODEL_LEN:-10240}  
-fi
+check_env_vars \
+    MODEL \
+    TP \
+    CONC \
+    ISL \
+    OSL \
+    MAX_MODEL_LEN \
+    RANDOM_RANGE_RATIO \
+    RESULT_FILENAME
 
-#cat > config.yaml << EOF
-#kv-cache-dtype: fp8
-#compilation-config: '{"pass_config":{"fuse_allreduce_rms":true,"eliminate_noops":true}}'
-#async-scheduling: true
-#no-enable-prefix-caching: true
-#max-cudagraph-capture-size: 2048
-#max-num-batched-tokens: 8192
-#max-model-len: $CALCULATED_MAX_MODEL_LEN
-#EOF
 
 cat > config.yaml << EOF
 no-enable-prefix-caching: true
-max-model-len: $CALCULATED_MAX_MODEL_LEN
+max-model-len: $MAX_MODEL_LEN
 EOF
-
-# Turn off docker specific optimizations 
-#export VLLM_USE_AITER_UNIFIED_ATTENTION=1
-#export VLLM_ROCM_USE_AITER_MHA=0
-#export VLLM_ROCM_USE_AITER_FUSED_MOE_A16W4=1
 
 export VLLM_ROCM_USE_AITER=1
 export VLLM_ROCM_USE_AITER_MLA=0
 
-SERVER_LOG=$(mktemp /tmp/server-XXXXXX.log)
+SERVER_LOG=/workspace/server.log
+PORT=${PORT:-8888}
 
 set -x
-vllm serve $MODEL --host 0.0.0.0 --port $PORT --config config.yaml \
---gpu-memory-utilization 0.9 --tensor-parallel-size $TP --max-num-seqs 512 \
+vllm serve $MODEL --host 0.0.0.0 --port $PORT \
+--config config.yaml \
+--gpu-memory-utilization 0.9 \
+--tensor-parallel-size $TP \
+--max-num-seqs 256 \
 --trust-remote-code \
 > $SERVER_LOG 2>&1 &
 
@@ -67,7 +48,16 @@ run_benchmark_serving \
     --input-len "$ISL" \
     --output-len "$OSL" \
     --random-range-ratio "$RANDOM_RANGE_RATIO" \
-    --num-prompts "$NUM_PROMPTS" \
+    --num-prompts "$((CONC * 5))" \
     --max-concurrency "$CONC" \
     --result-filename "$RESULT_FILENAME" \
     --result-dir /workspace/
+
+chmod -Rf 777 /workspace/$VLLM_TORCH_PROFILER_DIR
+
+# After throughput, run evaluation only if RUN_EVAL is true
+if [ "${RUN_EVAL}" = "true" ]; then
+    run_eval --framework lm-eval --port "$PORT" --concurrent-requests $CONC
+    append_lm_eval_summary
+fi
+set +x
