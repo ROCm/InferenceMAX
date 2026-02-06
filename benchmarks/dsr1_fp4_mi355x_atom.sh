@@ -47,6 +47,8 @@ fi
 set -x
 
 BLOCK_SIZE=${BLOCK_SIZE:-16}
+export ATOM_USE_TRITON_MXFP4_BMM=1
+export AMDGCN_USE_BUFFER_OPS=1
 python3 -m atom.entrypoints.openai_server \
     --model $MODEL \
     --server-port $PORT \
