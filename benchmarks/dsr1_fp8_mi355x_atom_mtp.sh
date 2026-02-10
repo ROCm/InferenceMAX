@@ -63,19 +63,19 @@ SERVER_PID=$!
 # Wait for server to be ready
 wait_for_server_ready --port "$PORT" --server-log "$SERVER_LOG" --server-pid "$SERVER_PID"
  
-#export PYTHONDONTWRITEBYTECODE=1
-#run_benchmark_serving \
-#    --model "$MODEL" \
-#    --port "$PORT" \
-#    --backend vllm \
-#    --input-len "$ISL" \
-#    --output-len "$OSL" \
-#    --random-range-ratio "$RANDOM_RANGE_RATIO" \
-#    --num-prompts "$((CONC * 10))" \
-#    --max-concurrency "$CONC" \
-#    --result-filename "$RESULT_FILENAME" \
-#    --result-dir /workspace/ \
-#     --use-chat-template 
+export PYTHONDONTWRITEBYTECODE=1
+run_benchmark_serving \
+    --model "$MODEL" \
+    --port "$PORT" \
+    --backend vllm \
+    --input-len "$ISL" \
+    --output-len "$OSL" \
+    --random-range-ratio "$RANDOM_RANGE_RATIO" \
+    --num-prompts "$((CONC * 1))" \
+    --max-concurrency "$CONC" \
+    --result-filename "$RESULT_FILENAME" \
+    --result-dir /workspace/ \
+     --use-chat-template 
 
 # After throughput, run evaluation only if RUN_EVAL is true
 if [ "${RUN_EVAL}" = "true" ]; then
