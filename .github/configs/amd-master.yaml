@@ -252,7 +252,7 @@ dsr1-fp8-mi355x-atom:
   image: rocm/atom-dev:nightly_202602091050
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
-  runner: mi355x-p01-g42
+  runner: NA
   precision: fp8
   # WIP framwork (no customers yet)
   framework: NA
