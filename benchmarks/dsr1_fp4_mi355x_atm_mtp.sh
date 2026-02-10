@@ -44,17 +44,18 @@ else
   export ATOM_USE_TRITON_GEMM=1
   export ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION=0
 fi
-
 set -x
 
 BLOCK_SIZE=${BLOCK_SIZE:-16}
+export ATOM_USE_TRITON_MXFP4_BMM=1
+export AMDGCN_USE_BUFFER_OPS=1
 python3 -m atom.entrypoints.openai_server \
     --model $MODEL \
     --server-port $PORT \
     -tp $TP \
     --kv_cache_dtype fp8 $CALCULATED_MAX_MODEL_LEN $EP \
     --block-size $BLOCK_SIZE \
-    --method mtp \
+    --method eagle \
     --num-speculative-tokens 1 \
     > $SERVER_LOG 2>&1 &
 
@@ -62,8 +63,7 @@ SERVER_PID=$!
 
 # Wait for server to be ready
 wait_for_server_ready --port "$PORT" --server-log "$SERVER_LOG" --server-pid "$SERVER_PID"
- 
-#export PYTHONDONTWRITEBYTECODE=1
+
 #run_benchmark_serving \
 #    --model "$MODEL" \
 #    --port "$PORT" \
@@ -74,8 +74,7 @@ wait_for_server_ready --port "$PORT" --server-log "$SERVER_LOG" --server-pid "$S
 #    --num-prompts "$((CONC * 10))" \
 #    --max-concurrency "$CONC" \
 #    --result-filename "$RESULT_FILENAME" \
-#    --result-dir /workspace/ \
-#     --use-chat-template 
+#    --result-dir /workspace/
 
 # After throughput, run evaluation only if RUN_EVAL is true
 if [ "${RUN_EVAL}" = "true" ]; then
@@ -83,6 +82,3 @@ if [ "${RUN_EVAL}" = "true" ]; then
     append_lm_eval_summary
 fi
 set +x
-
-set -x
-rm -rf ./utils/bench_serving\
