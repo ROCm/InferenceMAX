@@ -26,7 +26,7 @@ dsr1-fp4-mi355x-atom:
   model: amd/DeepSeek-R1-0528-MXFP4
   model-prefix: dsr1
   runner: mi355x-p01-g42
-  precision: NA
+  precision: fp4
   framework: atom
   multinode: false
   seq-len-configs:
@@ -252,10 +252,10 @@ dsr1-fp8-mi355x-atom:
   image: rocm/atom-dev:nightly_202602091050
   model: deepseek-ai/DeepSeek-R1-0528
   model-prefix: dsr1
-  runner: NA
+  runner: mi355x-p01-g42
   precision: fp8
   # WIP framwork (no customers yet)
-  framework: NA
+  framework: atom
   multinode: false
   seq-len-configs:
   #- isl: 1024
