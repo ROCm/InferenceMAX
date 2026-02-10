@@ -30,14 +30,15 @@ dsr1-fp4-mi355x-atom:
   framework: atom
   multinode: false
   seq-len-configs:
-  #- isl: 1024
-  #  osl: 1024
-  #  search-space:
-  #  - { tp: 8, conc-start: 4, conc-end: 256 }
   - isl: 1024
-    osl: 8192
+    osl: 1024
     search-space:
-    - { tp: 8, conc-start: 256, conc-end: 256 }
+    - { tp: 4, conc-start: 4, conc-end: 256 }
+    - { tp: 8, conc-start: 4, conc-end: 256 }
+  #- isl: 1024
+  #  osl: 8192
+  #  search-space:
+  #  - { tp: 8, conc-start: 256, conc-end: 256 }
   #- isl: 8192
   #  osl: 1024
   #  search-space:
@@ -53,14 +54,15 @@ dsr1-fp4-mi355x-atom-mtp:
   framework: atom
   multinode: false
   seq-len-configs:
-  #- isl: 1024
-  #  osl: 1024
-  #  search-space:
-  #  - { tp: 8, conc-start: 4, conc-end: 256, spec-decoding: mtp }
   - isl: 1024
-    osl: 8192
+    osl: 1024
     search-space:
-    - { tp: 8, conc-start: 256, conc-end: 256, spec-decoding: mtp  }
+    - { tp: 4, conc-start: 4, conc-end: 256, spec-decoding: mtp }
+    - { tp: 8, conc-start: 4, conc-end: 256, spec-decoding: mtp }
+  #- isl: 1024
+  #  osl: 8192
+  #  search-space:
+  #  - { tp: 8, conc-start: 256, conc-end: 256, spec-decoding: mtp  }
   #- isl: 8192
   #  osl: 1024
   #  search-space:
@@ -258,14 +260,14 @@ dsr1-fp8-mi355x-atom:
   framework: atom
   multinode: false
   seq-len-configs:
-  #- isl: 1024
-  #  osl: 1024
-  #  search-space:
-  #  - { tp: 8, conc-start: 4, conc-end: 256 }
   - isl: 1024
-    osl: 8192
+    osl: 1024
     search-space:
-    - { tp: 8, conc-start: 256, conc-end: 256 }
+    - { tp: 8, conc-start: 4, conc-end: 256 }
+  #- isl: 1024
+  #  osl: 8192
+  #  search-space:
+  #  - { tp: 8, conc-start: 256, conc-end: 256 }
   #- isl: 8192
   #  osl: 1024
   #  search-space:
@@ -281,14 +283,14 @@ dsr1-fp8-mi355x-atom-mtp:
   framework: atom
   multinode: false
   seq-len-configs:
-  #- isl: 1024
-  #  osl: 1024
-  #  search-space:
-  #  - { tp: 8, conc-start: 4, conc-end: 256, spec-decoding: mtp }
   - isl: 1024
-    osl: 8192
+    osl: 1024
     search-space:
-    - { tp: 8, conc-start: 256, conc-end: 256, spec-decoding: mtp  }
+    - { tp: 8, conc-start: 4, conc-end: 256, spec-decoding: mtp }
+  #- isl: 1024
+  #  osl: 8192
+  #  search-space:
+  #  - { tp: 8, conc-start: 256, conc-end: 256, spec-decoding: mtp  }
   #- isl: 8192
   #  osl: 1024
   #  search-space:
