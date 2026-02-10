@@ -38,6 +38,7 @@ docker run --rm --init --network host --shm-size=16g --name=$server_name \
 -e RESULT_FILENAME \
 -e EP_SIZE \
 -e DP_ATTENTION \
+-e RUN_EVAL \
 --entrypoint=/bin/bash \
 $IMAGE \
 benchmarks/${MODEL_CODE}_${PRECISION}_mi355x${FRAMEWORK_SUFFIX}${SPEC_SUFFIX}.sh
