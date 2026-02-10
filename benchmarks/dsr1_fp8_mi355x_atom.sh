@@ -39,21 +39,21 @@ fi
 
 # https://github.com/ROCm/ATOM/pull/119
 if [ "$CONC" -gt 4 ]; then
-  export ATOM_USE_TRITON_GEMM=1
+  #export ATOM_USE_TRITON_GEMM=1
+  echo "skip"
 else
-  export ATOM_USE_TRITON_GEMM=1
+  #export ATOM_USE_TRITON_GEMM=1
   export ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION=0
 fi
 
 set -x
-
-BLOCK_SIZE=${BLOCK_SIZE:-16}
+export PYTHONDONTWRITEBYTECODE=1
 python3 -m atom.entrypoints.openai_server \
     --model $MODEL \
     --server-port $PORT \
     -tp $TP \
     --kv_cache_dtype fp8 $CALCULATED_MAX_MODEL_LEN $EP \
-    --block-size $BLOCK_SIZE > $SERVER_LOG 2>&1 &
+    > $SERVER_LOG 2>&1 &
 
 SERVER_PID=$!
 

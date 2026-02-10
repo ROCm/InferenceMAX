@@ -46,15 +46,15 @@ else
 fi
 set -x
 
-BLOCK_SIZE=${BLOCK_SIZE:-16}
 export ATOM_USE_TRITON_MXFP4_BMM=1
 export AMDGCN_USE_BUFFER_OPS=1
+
+export PYTHONDONTWRITEBYTECODE=1
 python3 -m atom.entrypoints.openai_server \
     --model $MODEL \
     --server-port $PORT \
     -tp $TP \
     --kv_cache_dtype fp8 $CALCULATED_MAX_MODEL_LEN $EP \
-    --block-size $BLOCK_SIZE \
     > $SERVER_LOG 2>&1 &
 
 SERVER_PID=$!
