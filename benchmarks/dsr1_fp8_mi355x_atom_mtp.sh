@@ -37,12 +37,7 @@ else
   EP=" "
 fi
 
-# https://github.com/ROCm/ATOM/pull/119
-if [ "$CONC" -gt 4 ]; then
-  #export ATOM_USE_TRITON_GEMM=1
-  echo "skip"
-else
-  #export ATOM_USE_TRITON_GEMM=1
+if [ "$CONC" -le 4 ]; then
   export ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION=0
 fi
 

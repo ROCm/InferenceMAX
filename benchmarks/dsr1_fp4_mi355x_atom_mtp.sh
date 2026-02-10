@@ -37,10 +37,13 @@ else
   EP=" "
 fi
 
-if [ "$CONC" -le 4 ]; then
+# https://github.com/ROCm/ATOM/pull/119
+if [ "$CONC" -gt 4 ]; then
+  export ATOM_USE_TRITON_GEMM=1
+else
+  export ATOM_USE_TRITON_GEMM=1
   export ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION=0
 fi
-
 set -x
 
 export ATOM_USE_TRITON_MXFP4_BMM=1
@@ -52,6 +55,8 @@ python3 -m atom.entrypoints.openai_server \
     --server-port $PORT \
     -tp $TP \
     --kv_cache_dtype fp8 $CALCULATED_MAX_MODEL_LEN $EP \
+    --method eagle \
+    --num-speculative-tokens 1 \
     > $SERVER_LOG 2>&1 &
 
 SERVER_PID=$!
