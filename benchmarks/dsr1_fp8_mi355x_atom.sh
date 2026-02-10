@@ -37,10 +37,6 @@ else
   EP=" "
 fi
 
-if [ "$CONC" -le 4 ]; then
-  export ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION=0
-fi
-
 set -x
 export PYTHONDONTWRITEBYTECODE=1
 python3 -m atom.entrypoints.openai_server \

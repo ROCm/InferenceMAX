@@ -37,16 +37,9 @@ else
   EP=" "
 fi
 
-# https://github.com/ROCm/ATOM/pull/119
-if [ "$CONC" -gt 4 ]; then
-  export ATOM_USE_TRITON_GEMM=1
-else
-  export ATOM_USE_TRITON_GEMM=1
-  export ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION=0
-fi
 set -x
 
-export ATOM_USE_TRITON_MXFP4_BMM=1
+#export ATOM_USE_TRITON_MXFP4_BMM=1
 export AMDGCN_USE_BUFFER_OPS=1
 
 export PYTHONDONTWRITEBYTECODE=1

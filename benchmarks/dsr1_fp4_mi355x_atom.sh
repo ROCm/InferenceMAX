@@ -37,13 +37,9 @@ else
   EP=" "
 fi
 
-if [ "$CONC" -le 4 ]; then
-  export ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION=0
-fi
-
 set -x
 
-export ATOM_USE_TRITON_MXFP4_BMM=1
+#export ATOM_USE_TRITON_MXFP4_BMM=1
 export AMDGCN_USE_BUFFER_OPS=1
 
 export PYTHONDONTWRITEBYTECODE=1
