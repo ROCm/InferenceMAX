@@ -46,7 +46,6 @@ python3 -m atom.entrypoints.openai_server \
     -tp $TP \
     --kv_cache_dtype fp8 $CALCULATED_MAX_MODEL_LEN $EP \
     --method mtp \
-    --num-speculative-tokens 1 \
     > $SERVER_LOG 2>&1 &
 
 SERVER_PID=$!
