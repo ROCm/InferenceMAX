@@ -67,13 +67,14 @@ wait_for_server_ready --port "$PORT" --server-log "$SERVER_LOG" --server-pid "$S
 #    --max-concurrency "$CONC" \
 #    --result-filename "$RESULT_FILENAME" \
 #    --result-dir /workspace/ \
-#    --use-chat-template 
+#     --use-chat-template 
 
 # After throughput, run evaluation only if RUN_EVAL is true
-if [ "${RUN_EVAL}" = "true" ]; then
-    run_eval --framework lm-eval --port "$PORT" --concurrent-requests $CONC
-    append_lm_eval_summary
-fi
+set -x
+#if [ "${RUN_EVAL}" = "true" ]; then
+run_eval --framework lm-eval --port "$PORT" --concurrent-requests $CONC
+append_lm_eval_summary
+#fi
 set +x
 
 set -x
