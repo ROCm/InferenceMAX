@@ -491,10 +491,10 @@ minimaxm2p1-fp8-mi355x-vllm:
 #   osl: 8192
 #   search-space:
 #   - { tp: 4, conc-start: 4, conc-end: 128 }
- - isl: 8192
-   osl: 1024
-   search-space:
-   - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 #dsocr-bf16-mi355x-vllm:
 #  image: vllm/vllm-openai-rocm:v0.15.1 
