@@ -68,6 +68,70 @@ dsr1-fp4-mi355x-atom-mtp:
     search-space:
     - { tp: 8, conc-start: 4, conc-end: 256, spec-decoding: mtp  }
 
+# TODO: AMD donductor test: remove
+dsr1-fp4-mi350x-atom-mtp_1:
+  image: rocm/atom-dev:nightly_202602091050
+  model: amd/DeepSeek-R1-0528-MXFP4
+  model-prefix: dsr1
+  runner: mi350x-b05-1
+  precision: fp4
+  # WIP framwork (no customers yet)
+  framework: atom
+  multinode: false
+  seq-len-configs:
+  - isl: 1024
+    osl: 1024
+    search-space:
+    - { tp: 8, conc-start: 4, conc-end: 256, spec-decoding: mtp }
+
+# TODO: AMD donductor test: remove
+dsr1-fp4-mi350x-atom-mtp_2:
+  image: rocm/atom-dev:nightly_202602091050
+  model: amd/DeepSeek-R1-0528-MXFP4
+  model-prefix: dsr1
+  runner: mi350x-b08-1
+  precision: fp4
+  # WIP framwork (no customers yet)
+  framework: atom
+  multinode: false
+  seq-len-configs:
+  - isl: 1024
+    osl: 1024
+    search-space:
+    - { tp: 8, conc-start: 4, conc-end: 256, spec-decoding: mtp }
+
+# TODO: AMD donductor test: remove
+dsr1-fp4-mi350x-atom-mtp_3:
+  image: rocm/atom-dev:nightly_202602091050
+  model: amd/DeepSeek-R1-0528-MXFP4
+  model-prefix: dsr1
+  runner: mi350x-c05-1
+  precision: fp4
+  # WIP framwork (no customers yet)
+  framework: atom
+  multinode: false
+  seq-len-configs:
+  - isl: 1024
+    osl: 1024
+    search-space:
+    - { tp: 8, conc-start: 4, conc-end: 256, spec-decoding: mtp }
+
+# TODO: AMD donductor test: remove
+dsr1-fp4-mi350x-atom-mtp_4:
+  image: rocm/atom-dev:nightly_202602091050
+  model: amd/DeepSeek-R1-0528-MXFP4
+  model-prefix: dsr1
+  runner: mi350x-wbb3
+  precision: fp4
+  # WIP framwork (no customers yet)
+  framework: atom
+  multinode: false
+  seq-len-configs:
+  - isl: 1024
+    osl: 1024
+    search-space:
+    - { tp: 8, conc-start: 4, conc-end: 256, spec-decoding: mtp }
+
 
 dsr1-fp8-mi300x-sglang:
   image: lmsysorg/sglang:v0.5.7-rocm700-mi30x

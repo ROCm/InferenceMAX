@@ -74,3 +74,13 @@ mi355x-m15-17:
 - 'mi355x-amdatom'
 mi355x-p01-g42:
 - 'mi355x-amdtwatom'
+
+# AIG AIM nodes, conductor nodes, mi350x
+mi3e0x-b05-1:
+- 'mi350x-amdconductor_1'
+mi350x-b08-1:
+- 'mi350x-amdconductor_2'
+mi350x-c05-1:
+- 'mi350x-amdconductor_3'
+mi350x-wbb3:
+- 'mi350x-amdconductor_4'
