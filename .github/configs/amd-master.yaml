@@ -306,18 +306,18 @@ qwen3.235b-fp8-mi355x-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 1024
-    osl: 1024
-    search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
+#  - isl: 1024
+#    osl: 1024
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 128 }
 #  - isl: 1024
 #    osl: 8192
 #    search-space:
 #    - { tp: 4, conc-start: 4, conc-end: 128 }
-#  - isl: 8192
-#    osl: 1024
-#    search-space:
-#    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 qwencoder3.480b-fp8-mi355x-vllm:
   image: vllm/vllm-openai-rocm:v0.15.1 
@@ -328,18 +328,18 @@ qwencoder3.480b-fp8-mi355x-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 1024
-    osl: 1024
-    search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
+#  - isl: 1024
+#    osl: 1024
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 128 }
 #  - isl: 1024
 #    osl: 8192
 #    search-space:
 #    - { tp: 4, conc-start: 4, conc-end: 128 }
-#  - isl: 8192
-#    osl: 1024
-#    search-space:
-#    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 qwencoder3next_bf16-mi355x-vllm:
   #image: vllm/vllm-openai-rocm:v0.15.1 
@@ -351,18 +351,18 @@ qwencoder3next_bf16-mi355x-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 1024
-    osl: 1024
-    search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
+#  - isl: 1024
+#    osl: 1024
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 128 }
 #  - isl: 1024
 #    osl: 8192
 #    search-space:
 #    - { tp: 4, conc-start: 4, conc-end: 128 }
-#  - isl: 8192
-#    osl: 1024
-#    search-space:
-#    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 kimik2.inst0905-fp8-mi355x-vllm:
   image: vllm/vllm-openai-rocm:v0.15.1 
@@ -373,18 +373,18 @@ kimik2.inst0905-fp8-mi355x-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 1024
-    osl: 1024
-    search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
+#  - isl: 1024
+#    osl: 1024
+#    search-space:
+#    - { tp: 8, conc-start: 4, conc-end: 128 }
 #  - isl: 1024
 #    osl: 8192
 #    search-space:
 #    - { tp: 8, conc-start: 4, conc-end: 128 }
-#  - isl: 8192
-#    osl: 1024
-#    search-space:
-#    - { tp: 8, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 8, conc-start: 4, conc-end: 128 }
 
 kimik2think-int4-mi355x-vllm:
   image: vllm/vllm-openai-rocm:v0.15.1 
@@ -395,18 +395,18 @@ kimik2think-int4-mi355x-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 1024
-    osl: 1024
-    search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
+#  - isl: 1024
+#    osl: 1024
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 128 }
 #  - isl: 1024
 #    osl: 8192
 #    search-space:
 #    - { tp: 4, conc-start: 4, conc-end: 128 }
-#  - isl: 8192
-#    osl: 1024
-#    search-space:
-#    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 8192
+    osl: 1024
+    search-space:
+    - { tp: 4, conc-start: 4, conc-end: 128 }
 
 kimik2.5-int4-mi355x-vllm:
   image: vllm/vllm-openai-rocm:v0.15.1 
@@ -417,54 +417,54 @@ kimik2.5-int4-mi355x-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 1024
+#  - isl: 1024
+#    osl: 1024
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 128 }
+#  - isl: 1024
+#    osl: 8192
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 128 }
+  - isl: 8192
     osl: 1024
     search-space:
     - { tp: 4, conc-start: 4, conc-end: 128 }
-#  - isl: 1024
-#    osl: 8192
-#    search-space:
-#    - { tp: 4, conc-start: 4, conc-end: 128 }
-#  - isl: 8192
-#    osl: 1024
-#    search-space:
-#    - { tp: 4, conc-start: 4, conc-end: 128 }
 
-glm4p7-fp4-mi355x-vllm:
+glm4p7-fp8-mi355x-vllm:
   image: vllm/vllm-openai-rocm:v0.15.1 
   model: zai-org/GLM-4.7-FP8
   model-prefix: glm4p7
-  runner: mi355x-m15-17
-  precision: fp4
-  framework: vllm
-  multinode: false
-  seq-len-configs:
-  - isl: 1024
-    osl: 1024
-    search-space:
-    - { tp: 8, conc-start: 4, conc-end: 128 }
-#  - isl: 1024
-#    osl: 8192
-#    search-space:
-#    - { tp: 8, conc-start: 4, conc-end: 128 }
-#  - isl: 8192
-#    osl: 1024
-#    search-space:
-#    - { tp: 8, conc-start: 4, conc-end: 128 }
-
-dsv32-fp8-mi355x-vllm:
-  image: vllm/vllm-openai-rocm:v0.15.1 
-  model: deepseek-ai/DeepSeek-V3.2
-  model-prefix: dsv32
   runner: mi355x-m15-17
   precision: fp8
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 1024
+#  - isl: 1024
+#    osl: 1024
+#    search-space:
+#    - { tp: 8, conc-start: 4, conc-end: 128 }
+#  - isl: 1024
+#    osl: 8192
+#    search-space:
+#    - { tp: 8, conc-start: 4, conc-end: 128 }
+  - isl: 8192
     osl: 1024
     search-space:
     - { tp: 8, conc-start: 4, conc-end: 128 }
+
+#dsv32-fp8-mi355x-vllm:
+#  image: vllm/vllm-openai-rocm:v0.15.1 
+#  model: deepseek-ai/DeepSeek-V3.2
+#  model-prefix: dsv32
+#  runner: mi355x-m15-17
+#  precision: fp8
+#  framework: vllm
+#  multinode: false
+#  seq-len-configs:
+#  - isl: 1024
+#    osl: 1024
+#    search-space:
+#    - { tp: 8, conc-start: 4, conc-end: 128 }
 # - isl: 1024
 #   osl: 8192
 #   search-space:
@@ -483,18 +483,18 @@ minimaxm2p1-fp8-mi355x-vllm:
   framework: vllm
   multinode: false
   seq-len-configs:
-  - isl: 1024
-    osl: 1024
-    search-space:
-    - { tp: 4, conc-start: 4, conc-end: 128 }
+#  - isl: 1024
+#    osl: 1024
+#    search-space:
+#    - { tp: 4, conc-start: 4, conc-end: 128 }
 # - isl: 1024
 #   osl: 8192
 #   search-space:
 #   - { tp: 4, conc-start: 4, conc-end: 128 }
-# - isl: 8192
-#   osl: 1024
-#   search-space:
-#   - { tp: 4, conc-start: 4, conc-end: 128 }
+ - isl: 8192
+   osl: 1024
+   search-space:
+   - { tp: 4, conc-start: 4, conc-end: 128 }
 
 #dsocr-bf16-mi355x-vllm:
 #  image: vllm/vllm-openai-rocm:v0.15.1 
@@ -576,12 +576,12 @@ kimik2think-int4-mi355x-sglang:
     search-space:
     - { tp: 4, conc-start: 4, conc-end: 4 }
 
-glm4p7-fp4-mi355x-sglang:
+glm4p7-fp8-mi355x-sglang:
   image: lmsysorg/sglang:v0.5.7-rocm700-mi35x
   model: zai-org/GLM-4.7-FP8
   model-prefix: glm4p7
   runner: mi355x-m15-17
-  precision: fp4
+  precision: fp8
   framework: NA
   multinode: false
   seq-len-configs:
