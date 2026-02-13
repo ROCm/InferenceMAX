@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #NV sucks...
-rm -rf  /usr/local/cuda-13.0/compat/libcuda.so.1
+rm -rf  /usr/local/cuda-13.0/compat
 
 source "$(dirname "$0")/benchmark_lib.sh"
 
@@ -23,9 +23,8 @@ hf download "$MODEL"
 
 cat > config.yaml << EOF
 no-enable-prefix-caching: true
+max-model-len: $MAX_MODEL_LEN
 EOF
-#BUG: marlin 
-#max-model-len: $MAX_MODEL_LEN
 
 SERVER_LOG=/workspace/server.log
 PORT=${PORT:-8888}
