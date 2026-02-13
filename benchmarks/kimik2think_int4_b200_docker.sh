@@ -23,8 +23,9 @@ hf download "$MODEL"
 
 cat > config.yaml << EOF
 no-enable-prefix-caching: true
-max-model-len: $MAX_MODEL_LEN
 EOF
+#BUG: marlin 
+#max-model-len: $MAX_MODEL_LEN
 
 SERVER_LOG=/workspace/server.log
 PORT=${PORT:-8888}
